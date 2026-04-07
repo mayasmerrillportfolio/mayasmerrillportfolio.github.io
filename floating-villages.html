@@ -151,7 +151,14 @@ nav{
 .deliverable-video video{width:100%;display:block;border-radius:2px}
 .deliverable-desc p{font-size:14px;font-weight:300;line-height:1.85;color:#444}
 @media(max-width:750px){
-  .deliverable-block{grid-template-columns:1fr;padding:1.5rem 1.25rem 2rem}
+  .deliverable-block{
+    grid-template-columns:1fr;
+    padding:0 0 2rem;
+  }
+  .deliverable-block .deliverable-video{order:-1;width:100%}
+  .deliverable-block .deliverable-video img,
+  .deliverable-block .deliverable-video video{margin-top:0 !important}
+  .deliverable-block .deliverable-desc{padding:1rem 0.75rem 0}
 }
 
 /* ── HMW HEADING ── */
