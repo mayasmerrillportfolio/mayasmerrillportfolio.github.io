@@ -52,7 +52,7 @@ footer p{font-size:12px;color:var(--mid)}
   .resume{padding:6rem 1.25rem 4rem}
   .entry-header{flex-direction:column;gap:0.1rem}
   footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
-  img#about-photo{position:fixed;right:1rem;top:4rem;width:35vw;transition:opacity 0.4s ease}
+  img#about-photo{position:relative !important;float:right;right:auto;top:auto;width:45vw !important;margin:0 0 1rem 1.5rem;z-index:1}
 }
 </style>
 </head>
@@ -63,9 +63,9 @@ footer p{font-size:12px;color:var(--mid)}
   <a class="nav-name" href="portfolio.html">Maya Merrill</a>
 </nav>
 
-<img id="about-photo" src="about-photo.jpg" alt="Maya Merrill" style="position:fixed;right:3rem;top:8rem;width:min(240px,20vw);object-fit:cover;display:block;z-index:10;transition:opacity 0.4s ease">
-
 <div class="resume">
+
+  <img id="about-photo" src="about-photo.jpg" alt="Maya Merrill" style="position:fixed;right:3rem;top:8rem;width:min(240px,20vw);object-fit:cover;display:block;z-index:10;transition:opacity 0.4s ease">
 
   <div class="resume-header" style="border-bottom:none;padding-bottom:0">
     <h1>Maya Sayuri Merrill</h1>
@@ -280,20 +280,6 @@ footer p{font-size:12px;color:var(--mid)}
   <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
 </footer>
 
-<script>
-if(window.innerWidth <= 750){
-  const photo = document.getElementById('about-photo');
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if(scrolled > 150){
-      photo.style.opacity = Math.max(0, 1 - (scrolled - 150) / 150);
-    } else {
-      photo.style.opacity = 1;
-    }
-    photo.style.pointerEvents = photo.style.opacity < 0.1 ? 'none' : 'auto';
-  });
-}
-</script>
 
 </body>
 </html>
