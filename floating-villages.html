@@ -251,20 +251,26 @@ footer p{font-size:12px;color:var(--mid)}
   }
   .project-title{font-size:clamp(2rem,10vw,3rem)}
 
-  /* Sidebar images become a horizontal scroll strip */
+  /* Sidebar: stack vertically, video full width above photo */
   .project-header-images{
-    flex-direction:row;
-    overflow-x:auto;
-    gap:0.4rem;
-    /* hide scrollbar visually */
-    scrollbar-width:none;
-    -ms-overflow-style:none;
+    flex-direction:column;
+    overflow-x:visible;
+    gap:0.6rem;
   }
-  .project-header-images::-webkit-scrollbar{display:none}
   .project-header-images img{
-    flex:0 0 75vw;
-    height:52vw;
-    width:75vw;
+    width:100%;
+    height:auto;
+    flex:none;
+  }
+  .sidebar-video-wrap iframe{
+    width:100% !important;
+    aspect-ratio:16/9;
+    min-height:0 !important;
+    height:auto !important;
+  }
+  .sidebar-map-wrap img{
+    width:100% !important;
+    margin-left:0 !important;
   }
 
   /* Gallery: single column */
@@ -284,6 +290,11 @@ footer p{font-size:12px;color:var(--mid)}
   /* Lightbox arrows closer to edges on small screens */
   .lb-arrow.prev{left:0}
   .lb-arrow.next{right:0}
+
+  body{padding-left:0 !important;padding-right:0 !important}
+  [style*="padding:0 2.5rem"]{padding-left:0.75rem !important;padding-right:0.75rem !important}
+  [style*="padding:8rem 2.5rem"]{padding-left:0.75rem !important;padding-right:0.75rem !important}
+  .gallery-item img{opacity:1 !important}
 }
 </style>
 </head>

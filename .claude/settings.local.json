@@ -54,7 +54,9 @@
       "Bash(git branch:*)",
       "Bash(git remote:*)",
       "Bash(git push:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(grep -oh 'width:[0-9]*%' *.html)",
+      "Bash(grep -n 'width:50%\\\\|width:56%\\\\|width:62%\\\\|width:65%\\\\|width:68%\\\\|width:81%\\\\|width:85%\\\\|width:90%\\\\|width:92%\\\\|width:96%' *.html)"
     ]
   }
 }
