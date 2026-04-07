@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recycled Bottles Installation — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── HEADER ── */
+.project-header{
+  padding:8rem 2.5rem 4rem;
+  max-width:900px;
+}
+.project-cat{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.project-title em{font-style:italic;color:var(--mid)}
+.project-desc{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+
+/* ── GALLERY ── */
+.gallery{
+  padding:0.6rem 2.5rem 6rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.6rem;
+  align-items:start;
+}
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+.gallery-heading.large{font-size:clamp(1.6rem,3.5vw,2.8rem)}
+@media(max-width:750px){.gallery-heading{padding:2rem 1.25rem 1rem}}
+
+/* ── SECTION TEXT ── */
+.section-text{
+  padding:2.5rem 2.5rem 2.5rem;
+  max-width:900px;
+}
+.section-text p{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+.section-text p:last-child{margin-bottom:0}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  .project-header{padding:5.5rem 1.25rem 2rem}
+  .gallery{grid-template-columns:1fr;padding:0.5rem 1.25rem 4rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start;padding:8rem 2.5rem 2rem;max-width:100%">
+  <div>
+    <p class="project-cat">Spatial Design</p>
+    <h1 class="project-title">Recycled Bottles<br><em>Installation</em></h1>
+    <p class="project-desc">Phnom Penh, Cambodia</p>
+    <p style="font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:700;line-height:1.3;color:#555;font-style:italic;margin-bottom:1.2rem">How might we repurpose plastic bottle waste in Cambodia into an interactive art installation?</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">In Cambodia, where municipal waste management is a persistent challenge, the <a href="https://cambojanews.com/scavengers-unlikely-heroes-in-cambodias-waste-management-recycling-efforts/" target="_blank" style="color:#555;text-decoration:underline">informal economy of waste pickers</a>, known as 'Neak Reu Ejai,' serves as the backbone for recycling efforts. This installation was designed to celebrate and validate this informal system. By sourcing 10kg of plastic bottles from Neak Reu Ejai and local collection centers, my students and I transformed a stigmatized source of income into a site-specific work of beauty. Working with four classes at Liger Leadership Academy and co-facilitator Souyeth Kret, I led a participatory process that challenged the public to reconsider waste as a resource for cultural expression and beauty.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">The project investigates the architectural potential of these discarded materials, treating the bottles as units of color to create a porous, suspended facade across the school balcony. By painting and assembling these units, the installation modulates light, transforming waste accumulation into colorful, interactive art that invites community engagement.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">Once installed, the work is highly interactive in its environment; users play with the bottles and the breeze flows through the installation to create a wind-chime effect.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555"><strong>Materials & Tools:</strong> Recycled plastic bottles, string, chicken wire, acrylic paint & zipties.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:10%">
+    <div class="gallery-item" style="overflow:hidden;width:100%"><img src="adjai.webp" alt="Neak Reu Ejai waste pickers" style="width:100%;display:block"></div>
+    <p style="font-size:11px;font-weight:300;color:var(--mid);line-height:1.5">Photograph: Kibae Park/Flickr Vision, from <a href="https://www.theguardian.com/cities/2016/oct/11/hell-earth-great-urban-scandal-life-rubbish-dump" target="_blank" style="color:var(--mid)">The Guardian</a></p>
+    <div class="gallery-item" style="overflow:hidden;width:100%"><img src="shot3.jpg" alt="Recycled Bottles Installation" style="width:100%;display:block;margin-top:-15%"></div>
+  </div>
+</header>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;padding:0 2.5rem 2rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-1.jpg" alt="Bottles Installation 1" style="width:100%;display:block;margin-top:-20%;margin-bottom:-20%"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-2.jpg" alt="Bottles Installation 2" style="width:100%;display:block;margin-top:-20%;margin-bottom:-20%"></div>
+</div>
+
+<h2 class="gallery-heading no-italic medium">Collecting Recycled Bottles as Material</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;padding:0 2.5rem 2rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-3.jpg" alt="Bottles Installation 3" style="width:100%;display:block;margin-top:-20%"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-4.jpg" alt="Bottles Installation 4" style="width:100%;display:block;margin-top:-20%"></div>
+</div>
+
+<p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;padding:1.2rem 2.5rem 0">My co-teacher Souyeth Kret and I bought tons of plastic bottles from a local waste collection center in Takmau, Cambodia</p>
+
+<h2 class="gallery-heading no-italic medium">Bottle Assembly</h2>
+
+<div style="padding:2.5rem 2.5rem 2rem;max-width:800px">
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">After collecting our materials (bottles, paints and metal wire from which to hang them), I presented the project to my students, showing them the inspiration for the project and explaining the layout plan of the bottles along the metal wire. I organized about 400 bottles by color and length of string to create a wave effect along the metal wire, similar to the inspiration photos I found (see below).</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;padding:0 2.5rem 2rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-5.jpg" alt="Bottles Installation 5" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-6.jpg" alt="Bottles Installation 6" style="width:100%;display:block"></div>
+</div>
+
+<div style="padding:2.5rem 2.5rem 2rem;max-width:800px">
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">Across the four classes (about 60 students), each class painted about 100 bottles, color by color to create a total of about 400 painted bottles. We worked together to wash and paint each bottle, cut string and tie the bottles to the wire net before hanging it up over the school balcony.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.6rem;padding:0 2.5rem 6rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-7.jpg" alt="Bottles Installation 7" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-8.jpg" alt="Bottles Installation 8" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-9.jpg" alt="Bottles Installation 9" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="bottles-10.jpg" alt="Bottles Installation 10" style="width:100%;display:block"></div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

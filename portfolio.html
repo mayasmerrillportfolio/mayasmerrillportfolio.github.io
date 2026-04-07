@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Merrill — Multidisciplinary Designer & Educator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:1.2rem 2.5rem;
+}
+.nav-links{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap;margin-top:0.25rem}
+.nav-links a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;font-weight:700}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--white);text-decoration:none;transition:color 0.3s;white-space:nowrap}
+nav.light .nav-links a{color:var(--mid)}
+nav.light .nav-links a:hover,nav.light .nav-links a.active{color:var(--black);font-weight:700}
+nav.light .nav-name{color:var(--black)}
+
+/* ── HERO ──
+   SWAP: replace 'images/hero-bg.jpg' with your actual image filename below */
+#hero{
+  height:100vh;
+  display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:flex-end;
+  padding:0 2.5rem 5rem;position:relative;overflow:hidden;
+  background:#111; /* fallback colour while image loads */
+}
+.hero-bg-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  filter:brightness(0.45);
+  opacity:0;transition:opacity 1.2s ease;
+}
+.hero-bg-img.active{opacity:1}
+.hero-content{position:relative;z-index:1}
+.hero-intro{font-size:clamp(1rem,1.8vw,1.2rem);font-weight:300;color:rgba(255,255,255,0.55);margin-bottom:0.3rem;overflow:hidden}
+.hero-intro span{display:block;transform:translateY(100%);opacity:0;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.6s ease}
+.hero-name{font-family:var(--serif);font-size:clamp(3.5rem,9.5vw,8.5rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-0.01em;margin-bottom:0.25rem}
+.name-line{overflow:hidden;display:block;padding-bottom:0.25em;margin-bottom:-0.25em}
+.name-line span{display:block;transform:translateY(110%);transition:transform 0.75s cubic-bezier(0.16,1,0.3,1)}
+.name-line:nth-child(1) span{transition-delay:0.05s}
+.name-line:nth-child(2) span{transition-delay:0.15s}
+.hero-role{font-size:clamp(1rem,1.8vw,1.2rem);font-weight:300;color:rgba(255,255,255,0.55);margin-bottom:2.5rem;margin-top:0.6rem;overflow:hidden}
+.hero-role span{display:block;transform:translateY(100%);opacity:0;transition:transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.3s,opacity 0.65s ease 0.3s}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.35);padding-bottom:4px;transition:border-color 0.2s,opacity 0.8s ease 0.45s;opacity:0}
+.hero-cta:hover{border-color:#fff}
+.hero-revealed .hero-intro span,.hero-revealed .hero-role span{transform:translateY(0);opacity:1}
+.hero-revealed .name-line span{transform:translateY(0)}
+.hero-revealed .hero-cta{opacity:1}
+.hero-scroll{position:absolute;right:2.5rem;bottom:5rem;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);writing-mode:vertical-rl;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
+
+/* ── WORK SECTIONS ── */
+.work-section{padding:5rem 2.5rem 3rem}
+.work-section+.work-section{padding-top:2rem}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.section-header h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;letter-spacing:-0.02em}
+.section-header span{font-size:11px;color:var(--mid);letter-spacing:0.12em;text-transform:uppercase}
+
+/* ── PROJECT GRID ── */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem}
+.project-card{
+  display:block;text-decoration:none;color:inherit;
+  position:relative;overflow:hidden;aspect-ratio:3/2;background:var(--gray);
+}
+.project-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.55s ease}
+.project-card:hover img{transform:scale(1.04)}
+.project-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 55%);
+  opacity:0;transition:opacity 0.3s;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.75rem 1.5rem;
+}
+.project-card:hover .project-card-overlay{opacity:1}
+.project-card-title{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.5rem);font-weight:400;letter-spacing:-0.01em;color:#fff;margin-bottom:0.2rem}
+.project-card-sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+.project-card-placeholder{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  background:var(--gray);font-size:13px;color:#bbb;font-style:italic;font-family:var(--serif);
+}
+
+/* ── ABOUT ── */
+#about{padding:7rem 2.5rem;background:var(--black);color:#fff}
+.about-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+.about-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2rem}
+.about-left h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.15;letter-spacing:-0.02em}
+.about-left h2 em{font-style:italic;color:rgba(255,255,255,0.4)}
+.about-right{padding-top:3rem}
+.about-right p{font-size:16px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.65);margin-bottom:1.2rem}
+.about-right p strong{color:#fff;font-weight:500}
+.about-right a{color:#fff;border-bottom:1px solid rgba(255,255,255,0.25);text-decoration:none;transition:border-color 0.2s}
+.about-right a:hover{border-color:#fff}
+
+/* ── CONTACT ── */
+#contact{padding:7rem 2.5rem;background:var(--white)}
+.contact-inner{max-width:680px;margin:0 auto;text-align:center}
+.contact-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem}
+.contact-inner h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem;line-height:1.2}
+.contact-sub{font-size:15px;color:var(--mid);font-weight:300;margin-bottom:3.5rem;line-height:1.7}
+.form-steps{text-align:left}
+.step{display:none}
+.step.active{display:block;animation:fadeUp 0.4s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.step-q{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:400;font-style:italic;margin-bottom:1.5rem}
+.step input,.step textarea{width:100%;border:none;border-bottom:2px solid var(--line);padding:0.75rem 0;font-family:var(--sans);font-size:14px;color:var(--black);background:transparent;outline:none;transition:border-color 0.2s}
+.step input:focus,.step textarea:focus{border-color:var(--black)}
+.step input::placeholder,.step textarea::placeholder{color:#ccc;font-weight:300}
+.step textarea{resize:none;min-height:80px}
+.step-nav{display:flex;align-items:center;justify-content:space-between;margin-top:2rem}
+.dots{display:flex;gap:7px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background 0.3s}
+.dot.on{background:var(--black)}
+.btn-next,.btn-send{padding:0.65rem 1.7rem;background:var(--black);color:#fff;border:none;border-radius:100px;font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s}
+.btn-next:hover,.btn-send:hover{opacity:0.7}
+.btn-back{background:none;border:none;font-family:var(--sans);font-size:13px;color:var(--mid);cursor:pointer;letter-spacing:0.07em;text-transform:uppercase;font-weight:500;transition:color 0.2s}
+.btn-back:hover{color:var(--black)}
+.form-success{display:none;text-align:center;padding:3rem 0}
+.form-success h3{font-family:var(--serif);font-size:2.2rem;font-style:italic;margin-bottom:0.75rem}
+.form-success p{color:var(--mid);font-weight:300}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;background:var(--black);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.footer-links a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  .projects-grid{grid-template-columns:1fr;gap:0.4rem}
+  .about-inner{grid-template-columns:1fr;gap:2.5rem}
+  .about-right{padding-top:0}
+  nav{padding:1rem 1.25rem}
+  .nav-links{gap:1rem}
+  #hero,.work-section,#about,#contact{padding-left:1.25rem;padding-right:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-links">
+    <a href="#product">Product</a>
+    <a href="#physical" class="active">Spatial</a>
+    <a href="#digital">Art Direction &amp; Digital</a>
+    <a href="#art">Analog</a>
+    <a href="#photo">Storytelling</a>
+    <a href="resume.html">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div style="text-align:right">
+    <a class="nav-name" href="#hero" style="display:block">Maya Merrill</a>
+    <p style="font-size:10px;letter-spacing:0.08em;color:var(--mid);line-height:1.7;margin-top:0.2rem">Portland, OR<br>Kyoto, Japan<br>Phnom Penh, Cambodia</p>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════
+     HERO
+     SWAP: Put your hero background image in the
+     images/ folder and update the filename below
+     in the CSS :  url('images/hero-bg.jpg')
+     ════════════════════════════════════════════════ -->
+<section id="hero">
+  <div id="hero-slides"></div>
+  <div class="hero-content" id="heroContent">
+    <p class="hero-intro"><span>Hello! I'm</span></p>
+    <h1 class="hero-name">
+      <span class="name-line"><span>Maya</span></span>
+      <span class="name-line"><span><em>Merrill,</em></span></span>
+    </h1>
+    <p class="hero-role"><span>Multidisciplinary Designer &amp; Educator</span></p>
+    <a href="#physical" class="hero-cta">Take a peek at my work &nbsp;↓</a>
+  </div>
+  <span class="hero-scroll">Scroll</span>
+</section>
+
+<!-- ════════════════════ PRODUCT DESIGN ════════════════════ -->
+<section class="work-section" id="product">
+  <div class="section-header">
+    <h2>Product</h2>
+    <span>Selected projects</span>
+  </div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="5-rings.html">
+      <img src="rings-1.png" alt="5 Rings Exhibition">
+      <div class="project-card-overlay">
+        <p class="project-card-title">5 Rings Exhibition</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="solar-laptop-shade.html">
+      <img src="laptop-1.jpg" alt="Portable Solar Charging Laptop Shade">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Portable Solar Charging Laptop Shade</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="monstera-seat.html">
+      <img src="monstera-1.jpg" alt="Monstera Seat">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Monstera Seat</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="projects-grid" id="product-extra" style="margin-top:0.6rem;display:none">
+
+    <a class="project-card" href="cambodian-cooking.html">
+      <img src="Khmercooking-1.jpeg" alt="Cambodian Culture through Cooking">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Cambodian Culture through Cooking</p>
+        <p class="project-card-sub">Phnom Penh, Cambodia</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="limbpact.html">
+      <img src="limbpact-card.jpg" alt="LIMBPACT — Amputee Surf Gear">
+      <div class="project-card-overlay">
+        <p class="project-card-title">LIMBPACT — Amputee Surf Gear</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="soleil-uv-watch.html">
+      <img src="soleil-1.jpg" alt="Soleil UV Meter Watch" style="transform:scale(1.15)">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Soleil UV Meter Watch</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="greennest.html">
+      <img src="greennest-1.jpg" alt="GreenNest Container" style="object-position:center 10%">
+      <div class="project-card-overlay">
+        <p class="project-card-title">GreenNest Container</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="hannamal.html">
+      <img src="hannamal-1.png" alt="HANNAmal Lovey">
+      <div class="project-card-overlay">
+        <p class="project-card-title">HANNAmal Lovey — Upcycled Factory Waste</p>
+        <p class="project-card-sub">Portland, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="hafu-collection.html">
+      <img src="hafu-cover.png" alt="Hāfu Collection">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Hāfu (ハーフ) Collection</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div style="text-align:center;margin-top:1.5rem">
+    <button id="product-toggle" onclick="toggleProduct()" style="background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);display:inline-flex;align-items:center;gap:0.5rem;transition:color 0.2s" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">
+      <span id="product-toggle-label">Show more</span>
+      <span id="product-toggle-arrow" style="font-size:14px;transition:transform 0.3s">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- ════════════════════ SPATIAL DESIGN ════════════════════ -->
+<section class="work-section" id="physical">
+  <div class="section-header">
+    <h2>Spatial</h2>
+    <span>Selected projects</span>
+  </div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="floating-villages.html">
+      <img src="Floating_Villages/Floating_villages_images/floatingvillages-10.jpeg" alt="Floating Villages">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Design for Impact: Designing for Floating Villages</p>
+        <p class="project-card-sub">Phnom Penh, CAMBODIA</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="eastie-farms.html">
+      <img src="modelgif.gif" alt="Redesigning Eastie Farms">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Redesigning Eastie Farms</p>
+        <p class="project-card-sub">Boston, MA</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="recycled-bottles.html">
+      <img src="bottles-2.jpg" alt="Recycled Bottles Installation" style="transform:scale(1.2);object-position:center">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Recycled Bottles Installation</p>
+        <p class="project-card-sub">Phnom Penh, Cambodia</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════════ DIGITAL DESIGN ════════════════════ -->
+<section class="work-section" id="digital">
+  <div class="section-header">
+    <h2>Art Direction &amp; Digital</h2>
+    <span>Selected projects</span>
+  </div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="undp.html">
+      <img src="undp-graphic1.jpg" alt="United Nations Development Program" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">United Nations Development Program</p>
+        <p class="project-card-sub">Geneva & Phnom Penh</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="asean-startup.html">
+      <img src="asc-2.jpg" alt="ASEAN Startup Connect 2025" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">ASEAN Startup Connect 2025</p>
+        <p class="project-card-sub">Phnom Penh, Cambodia</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="uo-branding.html">
+      <img src="uobranding-110.gif" alt="University of Oregon Branding" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">University of Oregon Branding</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="projects-grid" id="digital-extra" style="margin-top:0.6rem;display:none">
+
+    <a class="project-card" href="editorial-illustration.html">
+      <img src="editorial-heat2.jpg" alt="Editorial Illustration" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">Editorial Illustration</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="hopes.html">
+      <img src="hopes-banner-photo.jpg" alt="HOPES[29] Conference" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.3);transform-origin:center">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">HOPES[29] Conference</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="uo-basketball.html">
+      <img src="mbb-2.jpg" alt="UO Men's Basketball" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">UO Men's Basketball</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="oregon-accelerator.html">
+      <img src="oraccel-5.jpg" alt="Oregon Accelerator" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">Oregon Accelerator</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="cambodia-map.html">
+      <img src="cambodiamap-1.jpg" alt="Map of Cambodia" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">Provinces of Cambodia — Illustrated Maps</p>
+        <p class="project-card-sub">Phnom Penh, Cambodia</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="two-worlds.html">
+      <img src="twoworlds-12.jpg" alt="Two Worlds Campaign" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 60%,rgba(0,0,0,0.1) 100%)">
+        <p class="project-card-title">Two Worlds Campaign</p>
+        <p class="project-card-sub">Portland, Oregon</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div style="text-align:center;margin-top:1.5rem">
+    <button id="digital-toggle" onclick="toggleDigital()" style="background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);display:inline-flex;align-items:center;gap:0.5rem;transition:color 0.2s" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">
+      <span id="digital-toggle-label">Show more</span>
+      <span id="digital-toggle-arrow" style="font-size:14px;transition:transform 0.3s">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- ════════════════════ PHOTO & VIDEO ════════════════════ -->
+<section class="work-section" id="photo">
+  <div class="section-header">
+    <h2>Storytelling</h2>
+    <span>Selected works</span>
+  </div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="wwf-cambodia.html">
+      <img src="https://img.youtube.com/vi/Bo8SYAitgqA/maxresdefault.jpg" alt="WWF Cambodia Earth Day 2025">
+      <div class="project-card-overlay">
+        <p class="project-card-title">WWF Cambodia Earth Day 2025</p>
+        <p class="project-card-sub">Phnom Penh, Cambodia</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="circular-design-week.html">
+      <img src="https://img.youtube.com/vi/k8hcZhBv8dk/maxresdefault.jpg" alt="Circular Design Week 2025" style="transform:scale(1.2)">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Circular Design Week 2025</p>
+        <p class="project-card-sub">Kyoto, Japan</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="runners-purpose.html">
+      <img src="https://img.youtube.com/vi/BAlZ8wg7ulE/maxresdefault.jpg" alt="A Runner's Purpose Documentary">
+      <div class="project-card-overlay">
+        <p class="project-card-title">A Runner's Purpose Documentary</p>
+        <p class="project-card-sub">Eugene, Oregon</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════════ ART ════════════════════ -->
+<section class="work-section" id="art">
+  <div class="section-header">
+    <h2>Analog</h2>
+    <span>Selected works</span>
+  </div>
+  <div class="projects-grid">
+
+    <a class="project-card" href="product-sketching.html">
+      <img src="sketch-1.jpg" alt="Product Sketching" style="width:100%;height:100%;object-fit:cover;display:block">
+      <div class="project-card-overlay" style="background:linear-gradient(to top,rgba(255,255,255,0.7) 0%,transparent 55%)">
+        <p class="project-card-title" style="color:#111">Product Sketching</p>
+        <p class="project-card-sub" style="color:rgba(0,0,0,0.6)">Analog</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="painting.html">
+      <img src="painting-veggie.jpg" alt="Art" style="width:110%;height:115%;object-fit:cover;display:block;margin:-5% -5% -10%">
+      <div class="project-card-overlay">
+        <p class="project-card-title">Art</p>
+        <p class="project-card-sub">Analog</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     ABOUT / RESUME
+     SWAP: update bio text here
+     ════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="about-label">About &amp; Resume</p>
+      <h2>Designing across <em>every dimension.</em></h2>
+    </div>
+    <div class="about-right">
+      <p>I'm <strong>Maya</strong>, a multidisciplinary designer and artist working across 2D design, product to spatial design, photo and video. I love storytelling in different mediums and collaborating across cultures. I actively seek to work on projects that create a positive impact, solve problems and bring joy — and doing so with passionate people.</p>
+      <p>Currently <strong>open to new projects and collaborations</strong>. Have something in mind? <a href="#contact">Let's talk →</a></p>
+      <!-- SWAP: uncomment and link your resume PDF -->
+      <!-- <p><a href="images/maya-merrill-resume.pdf" target="_blank">Download Resume →</a></p> -->
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="contact-label">Get in touch</p>
+    <h2>I'm always looking for exciting projects. How can we collaborate?</h2>
+    <p class="contact-sub">Fill in the quick form below and I'll get back to you soon.</p>
+    <div id="formSteps" class="form-steps">
+      <div class="step active" id="s1">
+        <p class="step-q">Who are you?</p>
+        <input type="text" id="iName" placeholder="Your name" autocomplete="off">
+        <div class="step-nav"><div class="dots"><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div><button class="btn-next" onclick="next(1)">Next →</button></div>
+      </div>
+      <div class="step" id="s2">
+        <p class="step-q">What's your email?</p>
+        <input type="email" id="iEmail" placeholder="you@example.com" autocomplete="off">
+        <div class="step-nav"><button class="btn-back" onclick="prev(2)">← Back</button><div class="dots"><div class="dot"></div><div class="dot on"></div><div class="dot"></div></div><button class="btn-next" onclick="next(2)">Next →</button></div>
+      </div>
+      <div class="step" id="s3">
+        <p class="step-q" id="s3q">Now that we're acquainted, how can I help you?</p>
+        <textarea id="iMsg" placeholder="Tell me about your project…" rows="4"></textarea>
+        <div class="step-nav"><button class="btn-back" onclick="prev(3)">← Back</button><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot on"></div></div><button class="btn-send" onclick="sendForm()">Send it →</button></div>
+      </div>
+    </div>
+    <div id="formOk" class="form-success"><h3>Thanks!</h3><p>I'll get back to you soon.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <div class="footer-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+
+<script>
+// ── PRODUCT DESIGN TOGGLE ──
+function toggleProduct(){
+  const extra = document.getElementById('product-extra');
+  const label = document.getElementById('product-toggle-label');
+  const arrow = document.getElementById('product-toggle-arrow');
+  const open = extra.style.display === 'none';
+  extra.style.display = open ? 'grid' : 'none';
+  label.textContent = open ? 'Show less' : 'Show more';
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+function toggleDigital(){
+  const extra = document.getElementById('digital-extra');
+  const label = document.getElementById('digital-toggle-label');
+  const arrow = document.getElementById('digital-toggle-arrow');
+  const open = extra.style.display === 'none';
+  extra.style.display = open ? 'grid' : 'none';
+  label.textContent = open ? 'Show less' : 'Show more';
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+}
+
+// ── NAME REVEAL ──
+const heroContent = document.getElementById('heroContent');
+setTimeout(() => heroContent.classList.add('hero-revealed'), 180);
+
+// ── NAV COLOUR SWITCH ──
+const nav = document.getElementById('mainNav');
+const heroEl = document.getElementById('hero');
+function updateNav(){ nav.classList.toggle('light', window.scrollY > heroEl.offsetHeight - 80); }
+window.addEventListener('scroll', updateNav, {passive:true});
+updateNav();
+
+// ── HERO RE-REVEAL ON SCROLL BACK ──
+let heroVisible = true;
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !heroVisible){
+      heroContent.classList.remove('hero-revealed');
+      heroContent.querySelectorAll('.name-line span,.hero-intro span,.hero-role span').forEach(el=>el.style.transition='none');
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        heroContent.querySelectorAll('.name-line span,.hero-intro span,.hero-role span').forEach(el=>el.style.transition='');
+        heroContent.classList.add('hero-revealed');
+      }));
+    }
+    heroVisible = e.isIntersecting;
+  });
+},{threshold:0.5}).observe(heroEl);
+
+// ── ACTIVE NAV ON SCROLL ──
+const sections = ['physical','digital','art','photo','about','contact'];
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = 'physical';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 140) current = id;
+  });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+current));
+},{passive:true});
+
+// ── CONTACT FORM ──
+let uName = '';
+function next(n){
+  if(n===1){ uName=document.getElementById('iName').value.trim(); if(!uName){document.getElementById('iName').focus();return;} document.getElementById('s3q').textContent=`Now that we're acquainted, ${uName}, how can I help you?`; }
+  if(n===2){ const v=document.getElementById('iEmail').value.trim(); if(!v||!v.includes('@')){document.getElementById('iEmail').focus();return;} }
+  document.getElementById('s'+n).classList.remove('active');
+  document.getElementById('s'+(n+1)).classList.add('active');
+  setTimeout(()=>{ const el=document.querySelector('#s'+(n+1)+' input,#s'+(n+1)+' textarea'); if(el)el.focus(); },60);
+}
+function prev(n){ document.getElementById('s'+n).classList.remove('active'); document.getElementById('s'+(n-1)).classList.add('active'); }
+function sendForm(){ if(!document.getElementById('iMsg').value.trim()){document.getElementById('iMsg').focus();return;} document.getElementById('formSteps').style.display='none'; document.getElementById('formOk').style.display='block'; }
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Enter'||e.target.tagName==='TEXTAREA')return;
+  if(document.getElementById('s1').classList.contains('active'))next(1);
+  else if(document.getElementById('s2').classList.contains('active'))next(2);
+});
+
+// ── HERO SLIDESHOW ──
+(function(){
+  const images = [
+    {src:'rings-1.png'},
+    {src:'laptop-1.jpg', landscape:true},
+    {src:'monstera-1.jpg', landscape:true},
+    {src:'Khmercooking-1.jpeg', landscape:true},
+    {src:'limbpact-card.jpg', landscape:true},
+    {src:'soleil-1.jpg', landscape:true},
+    {src:'greennest-1.jpg', position:'center 90%'},
+    {src:'hannamal-1.png'},
+    {src:'hafu-cover.png', landscape:true},
+    {src:'Floating_Villages/Floating_villages_images/floatingvillages-10.jpeg', landscape:true},
+    {src:'bottles-2.jpg'},
+    {src:'sketch-1.jpg', landscape:true},
+    {src:'painting-veggie.jpg', landscape:true},
+    {src:'https://img.youtube.com/vi/Bo8SYAitgqA/maxresdefault.jpg', landscape:true},
+    {src:'https://img.youtube.com/vi/k8hcZhBv8dk/maxresdefault.jpg', size:'130%'},
+    {src:'https://img.youtube.com/vi/BAlZ8wg7ulE/maxresdefault.jpg', landscape:true},
+    {src:'modelgif.gif', landscape:true},
+    {src:'undp-graphic1.jpg', landscape:true},
+    {src:'hopes-banner-photo.jpg', landscape:true},
+    {src:'uobranding-110.gif'},
+    {src:'cambodiamap-1.jpg', landscape:true},
+    {src:'editorial-heat2.jpg'},
+    {src:'mbb-2.jpg'}
+  ];
+  const container = document.getElementById('hero-slides');
+  const slides = images.map(({src, landscape, position, size}) => {
+    const d = document.createElement('div');
+    d.className = 'hero-bg-img';
+    d.style.backgroundImage = "url('" + src + "')";
+    if(position) d.style.backgroundPosition = position;
+    if(size) d.style.backgroundSize = size;
+    if(landscape){
+      d.style.top = '-8%';
+      d.style.left = '-8%';
+      d.style.right = '-8%';
+      d.style.bottom = '-8%';
+      d.style.transform = 'scale(0.9)';
+      d.style.transformOrigin = 'center';
+    }
+    container.appendChild(d);
+    return d;
+  });
+  let current = 0;
+  slides[current].classList.add('active');
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+})();
+</script>
+</body>
+</html>

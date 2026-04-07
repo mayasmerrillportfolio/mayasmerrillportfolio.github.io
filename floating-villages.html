@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing for Floating Villages in Cambodia — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── HEADER ── */
+.project-header{
+  padding:8rem 2.5rem 4rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.6rem;
+  align-items:stretch;
+  max-width:100%;
+}
+.project-header-text{
+  padding-right:3rem;
+  padding-bottom:4rem;
+}
+.project-cat{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.project-title em{font-style:italic;color:var(--mid)}
+.project-desc{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+.project-desc:last-of-type{margin-bottom:0}
+.project-quote{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:400;font-style:italic;color:var(--black);margin-top:3.5rem;line-height:1.4}
+.project-header-images{
+  display:flex;flex-direction:column;gap:0.5rem;
+}
+.project-header-images{background:var(--white)}
+.project-header-images img{
+  width:100%;flex:1;min-height:0;object-fit:cover;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;cursor:pointer;
+}
+.project-header-images img:hover,.project-header-images img.revealed{opacity:1}
+.project-header-images img:hover{transform:scale(1.02)}
+.sidebar-video-wrap{display:flex;flex-direction:column;flex:1;min-height:0}
+.sidebar-video-wrap video{width:100%;flex:1;min-height:0;object-fit:cover;display:block}
+.sidebar-caption{font-size:11px;font-style:italic;color:var(--mid);line-height:1.5;padding:0.5rem 0 0.25rem}
+.sidebar-map-wrap{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+.sidebar-map-wrap img{width:200%;margin-left:-36%;display:block;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease}
+.sidebar-map-wrap img.revealed{opacity:1}
+
+/* ── GALLERY ── */
+.gallery{
+  padding:0.6rem 2.5rem 6rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.6rem;
+  align-items:start;
+}
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── LIGHTBOX ── */
+.lightbox{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,0.96);
+  display:none;align-items:center;justify-content:center;
+}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;user-select:none}
+.lb-close{
+  position:fixed;top:1.25rem;right:1.5rem;
+  background:none;border:none;color:rgba(255,255,255,0.5);
+  font-size:1.6rem;cursor:pointer;transition:color 0.2s;line-height:1;
+}
+.lb-close:hover{color:#fff}
+.lb-arrow{
+  position:fixed;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:rgba(255,255,255,0.35);
+  font-size:2rem;cursor:pointer;padding:1rem;transition:color 0.2s;line-height:1;
+}
+.lb-arrow:hover{color:#fff}
+.lb-arrow.prev{left:1rem}
+.lb-arrow.next{right:1rem}
+.lb-count{
+  position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  font-size:12px;letter-spacing:0.1em;color:rgba(255,255,255,0.3);
+}
+
+/* ── DUCKCOOP GRID ── */
+.gallery-duck{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-template-rows:260px 260px;
+  gap:0.6rem;
+  padding:0.6rem 2.5rem 3rem;
+}
+.gallery-duck .gallery-item{height:100%}
+.gallery-duck .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-duck .span2{grid-column:span 2}
+.gallery-duck .span3{grid-column:span 3}
+.gallery-duck .span6{grid-column:span 6}
+.gallery-duck .natural{height:auto}
+.gallery-duck .natural img{height:auto;object-fit:initial}
+@media(max-width:750px){
+  .gallery-duck{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:180px;padding:0.5rem 1.25rem 2rem}
+  .gallery-duck .span2,.gallery-duck .span3{grid-column:span 1}
+  .gallery-duck .natural{height:100%}
+  .gallery-duck .natural img{height:100%;object-fit:cover}
+}
+
+/* ── CHINAMPA GRID ── */
+.gallery-4{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:230px;
+  gap:0.6rem;
+  padding:0.6rem 2.5rem 3rem;
+}
+.gallery-4 .gallery-item{height:100%}
+.gallery-4 .gallery-item img{height:100%;object-fit:cover}
+.gallery-4 .portrait{grid-row:span 2}
+@media(max-width:750px){
+  .gallery-4{grid-template-columns:1fr 1fr;grid-auto-rows:160px;padding:0.5rem 1.25rem 2rem}
+  .gallery-4 .portrait{grid-row:span 2}
+}
+
+/* ── DELIVERABLE BLOCK ── */
+.deliverable-block{
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;
+  padding:1.5rem 2.5rem 3rem;align-items:start;
+}
+.deliverable-video video{width:100%;display:block;border-radius:2px}
+.deliverable-desc p{font-size:14px;font-weight:300;line-height:1.85;color:#444}
+@media(max-width:750px){
+  .deliverable-block{grid-template-columns:1fr;padding:1.5rem 1.25rem 2rem}
+}
+
+/* ── HMW HEADING ── */
+.section-hmw{
+  padding:3rem 2.5rem 1.5rem;
+  font-family:var(--serif);font-weight:700;font-style:normal;
+  font-size:clamp(1.75rem,3.75vw,2.75rem);
+  line-height:1.2;letter-spacing:-0.02em;color:var(--black);
+  max-width:900px;
+  opacity:0;transform:translateY(30px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.section-hmw.visible{opacity:1;transform:translateY(0)}
+@media(max-width:750px){.section-hmw{padding:2rem 1.25rem 1rem}}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+.gallery-heading.large{font-size:clamp(1.6rem,3.5vw,2.8rem)}
+@media(max-width:750px){.gallery-heading{padding:2rem 1.25rem 1rem}}
+
+/* ── SECTION TEXT ── */
+.section-text{
+  padding:2.5rem 2.5rem 2.5rem;
+  max-width:900px;
+}
+.section-text p{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+.section-text p:last-child{margin-bottom:0}
+.section-text ol{padding-left:1.4rem;margin-top:0.5rem}
+.section-text ol li{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:0.75rem}
+.section-text strong{color:var(--black);font-weight:500}
+
+/* ── ADVOCACY VIDEO ── */
+.advocacy-video{
+  padding:2rem 2.5rem 4rem;
+}
+.advocacy-video video{width:100%;display:block;max-width:900px}
+@media(max-width:750px){.advocacy-video{padding:1.5rem 1.25rem 3rem}}
+
+/* ── IMAGE ANNOTATIONS ── */
+.annotated-wrap{position:relative;display:block;width:100%}
+.annotated-wrap img{width:100%;display:block}
+.hotspot{position:absolute;cursor:pointer}
+.hotspot-dot{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--black);border:2px solid #fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,0.2);
+}
+.hotspot-label{
+  position:absolute;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.12);
+  padding:0.75rem 1rem;
+  font-size:13px;font-weight:300;line-height:1.6;color:var(--black);
+  width:200px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+  z-index:10;
+  box-shadow:0 2px 12px rgba(0,0,0,0.08);
+}
+.hotspot:hover .hotspot-label{opacity:1}
+
+/* ── DELIVERABLE CIRCLES ── */
+.deliverable-circle{position:relative;border:1px solid var(--line);border-radius:50%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:default}
+.circle-front{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;transition:opacity 0.35s ease;padding:1rem}
+.circle-front .circle-num{font-size:2rem;font-weight:300;color:var(--mid);line-height:1}
+.circle-front svg{opacity:0.5}
+.circle-back{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;opacity:0;transition:opacity 0.35s ease;background:var(--white)}
+.deliverable-circle:hover .circle-front,.deliverable-circle.revealed .circle-front{opacity:0}
+.deliverable-circle:hover .circle-back,.deliverable-circle.revealed .circle-back{opacity:1}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  /* Nav */
+  nav{padding:1rem 1.25rem}
+  .nav-name{font-size:0.95rem}
+
+  /* Header: stack text above images */
+  .project-header{
+    grid-template-columns:1fr;
+    padding:5.5rem 1.25rem 0;
+    gap:1.5rem;
+  }
+  .project-header-text{
+    padding-right:0;
+    padding-bottom:0;
+  }
+  .project-title{font-size:clamp(2rem,10vw,3rem)}
+
+  /* Sidebar images become a horizontal scroll strip */
+  .project-header-images{
+    flex-direction:row;
+    overflow-x:auto;
+    gap:0.4rem;
+    /* hide scrollbar visually */
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+  .project-header-images::-webkit-scrollbar{display:none}
+  .project-header-images img{
+    flex:0 0 75vw;
+    height:52vw;
+    width:75vw;
+  }
+
+  /* Gallery: single column */
+  .gallery{
+    grid-template-columns:1fr;
+    padding:0.5rem 1.25rem 4rem;
+  }
+
+  /* Footer */
+  footer{
+    flex-direction:column;
+    gap:0.5rem;
+    text-align:center;
+    padding:1.5rem 1.25rem;
+  }
+
+  /* Lightbox arrows closer to edges on small screens */
+  .lb-arrow.prev{left:0}
+  .lb-arrow.next{right:0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header class="project-header">
+  <div class="project-header-text">
+    <p class="project-cat">Spatial Design</p>
+    <h1 class="project-title">Designing for<br>Floating Villages<br><em>in Cambodia</em></h1>
+    <p class="project-desc">During my year-long Princeton in Asia fellowship, I created and taught project-based design classes to Cambodian students as a Learning Facilitator at AUPP Liger Leadership Academy in Phnom Penh, Cambodia.</p>
+    <p class="project-desc">In one of the courses I designed, I wanted to teach the design process as a tool for problem-solving to my students. I also wanted to expose them to existing ways in which design has been used to address various issues in Cambodia, from sustainable architecture to low-cost bio-sand water filters for purifying water or strategic waste water systems for maintaining health in floating villages in Siem Reap.</p>
+    <p class="project-desc">I called the course 'Design for Impact,' and essentially acted as a teacher and project manager by leading design research, mockups and prototyping various design solutions with students, specifically aimed at exploring how we might design solutions to problems faced by communities living in floating villages. I had chosen floating villages as the context for the challenges we aimed to address, since designing for flooding and water safety seems to be an issue that will only become more prevalent in Cambodia and beyond with the effects of climate change.</p>
+    <p class="project-desc">This course included taking my students on trips to various design firms in Phnom Penh to learn from design professionals, volunteering with NGOs in Siem Reap, visiting Moat Khlar floating village and Kampong Khleang floating village, to interview villagers and understand their challenges, collaborating with international organizations and building prototypes with local materials to address identified challenges. We documented our field research and interviews in videos that I facilitated students to film and edit.</p>
+    <p class="project-quote"><em>"Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime."</em></p>
+  </div>
+  <div class="project-header-images">
+    <div class="sidebar-video-wrap">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jrAZvmwgj3k" frameborder="0" allowfullscreen style="min-height:250px"></iframe>
+      <p class="sidebar-caption">Video filmed and edited by Liger Leadership Academy students and directed by me. Made in Adobe Premiere Pro as part of our class.</p>
+    </div>
+    <img src="Floating_Villages/Floating_villages_images/floatingvillages-1.jpeg" alt="Floating Villages" data-lb-index="0">
+    <div class="sidebar-map-wrap">
+      <img src="Floating_Villages/Floating%20village%20illos/floatingvillage-map%20(1).png" alt="Floating Village Map">
+      <p class="sidebar-caption">Floating Villages in Tonle Sap Lake, Cambodia. Made in Illustrator &amp; Procreate</p>
+    </div>
+  </div>
+</header>
+
+<!-- Field Research grid -->
+<h2 class="gallery-heading"><em>Field Research and Interviews in Moat Khlar Village</em></h2>
+<div class="gallery" id="gallery">
+  <div class="gallery-item" data-index="7"><img src="Floating_Villages/Floating_villages_images/floatingvillages-8.jpeg"  alt="Floating Villages 8"></div>
+  <div class="gallery-item" data-index="8"><img src="Floating_Villages/Floating_villages_images/floatingvillages-9.jpeg"  alt="Floating Villages 9"></div>
+  <div class="gallery-item" data-index="10"><img src="Floating_Villages/Floating_villages_images/floatingvillages-11.jpeg" alt="Floating Villages 11"></div>
+  <div class="gallery-item" data-index="11"><img src="Floating_Villages/Floating_villages_images/floatingvillages-12.jpeg" alt="Floating Villages 12"></div>
+  <div class="gallery-item" data-index="13"><img src="Floating_Villages/Floating_villages_images/floatingvillages-14.jpeg" alt="Floating Villages 14"></div>
+  <div class="gallery-item" data-index="6"><img src="Floating_Villages/Floating_villages_images/floatingvillages-7.jpeg"  alt="Floating Villages 7"></div>
+</div>
+
+<!-- Text below field research grid -->
+<h2 class="section-hmw">How might we design alternative food and income sources to address decreasing fish population challenges in floating villages?</h2>
+<div class="section-text" id="section-text">
+  <p>During our field trip to Siem Reap, my students and I gathered research through volunteering with local NGOs and interviewing community members in floating villages in the Tonle Sap to learn about the challenges they face in daily life and gather ideas for how we might use the design process as an approach to creating solutions to these.</p>
+  <p>Our pre-trip research about the challenges of life on the Tonle Sap was supported by interviews with villagers, who expressed challenges with providing food and income for their communities due to decreased fishing as a result of: climate change, recently-built dams that block fish migration in the Tonle Sap and the government's restrictions on communities' ability to fish.</p>
+  <p>To address these issues, my students and I created three different deliverables in a multi-pronged approach:</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:3rem;margin-left:-2.5rem;margin-right:-2.5rem">
+    <div class="deliverable-circle">
+      <div class="circle-front">
+        <span class="circle-num">01</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M20 12c0 0-3.5-7-8-7S4 12 4 12s3.5 7 8 7 8-7 8-7z"/>
+          <circle cx="10" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+          <path d="M4 12 2 8M4 12l-2 4"/>
+        </svg>
+      </div>
+      <div class="circle-back">
+        <p style="font-size:13px;font-weight:300;line-height:1.6;color:var(--black)"><strong>Two designs for regenerative and alternative food sources to fishing in floating villages:</strong> floating gardens and floating duck coops made of local, affordable and/or recycled materials.</p>
+      </div>
+    </div>
+    <div class="deliverable-circle">
+      <div class="circle-front">
+        <span class="circle-num">02</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+        </svg>
+      </div>
+      <div class="circle-back">
+        <p style="font-size:13px;font-weight:300;line-height:1.6;color:var(--black)"><strong>Instructional materials</strong> on how to make the floating gardens and duck coop, and why they are important, to promote behavior change and create a sustainable, replicable solution.</p>
+      </div>
+    </div>
+    <div class="deliverable-circle">
+      <div class="circle-front">
+        <span class="circle-num">03</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <polygon points="5,3 19,12 5,21" stroke="currentColor" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="circle-back">
+        <p style="font-size:13px;font-weight:300;line-height:1.6;color:var(--black)"><strong>Promotional videos</strong> highlighting the important work that these NGOs in Siem Reap are already doing to provide housing, clean water and medical services for rural communities in and around the Tonle Sap.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Prototyping section -->
+<h2 class="gallery-heading"><em>Prototyping Modular Gardens and Duck Coops</em></h2>
+<div class="gallery">
+  <div class="gallery-item" data-index="3"><img src="Floating_Villages/Floating_villages_images/floatingvillages-4.jpeg"  alt="Floating Villages 4"></div>
+  <div class="gallery-item" data-index="1"><img src="Floating_Villages/Floating_villages_images/floatingvillages-2.jpeg"  alt="Floating Villages 2"></div>
+  <div class="gallery-item" data-index="2"><img src="Floating_Villages/Floating_villages_images/floatingvillages-3.jpeg"  alt="Floating Villages 3"></div>
+  <div class="gallery-item" data-index="5"><img src="Floating_Villages/Floating_villages_images/floatingvillages-6.jpeg"  alt="Floating Villages 6"></div>
+</div>
+
+<h2 class="gallery-heading no-italic medium"><span style="font-weight:300">Deliverable 1 (Physical Design Interventions):</span> Floating gardens and floating duck coop designs as alternative resources of food and income in floating villages</h2>
+
+<h2 class="gallery-heading no-italic medium">Building Modular Floating Gardens</h2>
+
+<div class="deliverable-block">
+  <div class="deliverable-desc">
+    <p>To address these resource gaps, I guided my class in developing a multi-pronged intervention focusing on creating alternative sources of food and income in floating villages. Through a workshop with Ground Up Innovation Labs for Development (GUILD) based in Singapore, we adapted their 'Chinampa' floating garden model to the specific constraints of the Tonle Sap.</p>
+    <p>Our refined design prioritizes the use of site-specific, low-cost, recycled and natural materials available and used in and around floating villages, such as banana leaves and fishing net. By utilizing materials with low resale value, our design discourages the disassembly of units for parts, a problem we identified while interviewing NGO leaders who had attempted to install floating gardens in the past. This aimed to support the long-term stability of the community's food infrastructure.</p>
+    <p>Tools and Materials: Plastic bottles, netting (fish net, garden shade, burlap), tape and zipties. Adapted from GUILD's 'Chinampa' design.</p>
+  </div>
+  <div class="deliverable-video">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/xUkvbvpTkZY" frameborder="0" allowfullscreen></iframe>
+    <p class="sidebar-caption">Video shot and edited by Liger students and myself using Adobe Premiere Pro.</p>
+  </div>
+</div>
+
+<div class="gallery-4">
+  <div class="gallery-item"><img src="Floating_Villages/Chinampa/Chinampa-1.jpeg" alt="Chinampa 1"></div>
+  <div class="gallery-item portrait"><img src="Floating_Villages/Chinampa/Chinampa-2.jpg"  alt="Chinampa 2"></div>
+  <div class="gallery-item portrait"><img src="Floating_Villages/Chinampa/Chinampa-3.jpg"  alt="Chinampa 3"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Chinampa/Chinampa-5.jpeg" alt="Chinampa 5"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Chinampa/Chinampa-4.jpeg" alt="Chinampa 4"></div>
+  <div class="gallery-item portrait"><img src="Floating_Villages/Chinampa/Chinampa-6.jpg"  alt="Chinampa 6"></div>
+  <div class="gallery-item portrait"><img src="Floating_Villages/Chinampa/Chinampa-7.jpg"  alt="Chinampa 7"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Chinampa/Chinampa-8.jpg"  alt="Chinampa 8"></div>
+</div>
+
+<h3 class="gallery-heading medium" style="font-style:italic">Class Presentation on Field Research and Floating Gardens Prototyping</h3>
+
+<div style="padding:0 2.5rem 3rem">
+  <iframe width="85%" height="480" src="https://www.youtube.com/embed/eWEogmTLpG4" frameborder="0" allowfullscreen></iframe>
+  <p style="font-size:11px;font-weight:300;color:var(--mid);margin-top:0.5rem">Presentation made by Liger Leadership Academy students</p>
+</div>
+
+<div class="section-text">
+  <p>A critical part of our approach was ensuring our interventions could be sustained beyond the end of our class.</p>
+  <p>I facilitated students in creating 'how-to' guides in English and Khmer for floating villages that could help communities make and maintain floating gardens and duck coops independently, using low-cost materials we learned were most likely available nearby and simple construction methods.</p>
+</div>
+
+<h2 class="gallery-heading no-italic medium"><em>How-to Guide on Making a Modular Floating Garden</em></h2>
+<div class="gallery" style="padding-top:2rem">
+  <div class="gallery-item" style="padding:1rem"><img src="Floating_Villages/Guides/Guide-7.jpg" alt="Guide 7"></div>
+  <div style="display:flex;flex-direction:column;gap:0;padding:0 2rem 0 1rem;margin-top:-5rem;justify-content:flex-start">
+    <div class="illo-reveal" style="overflow:hidden;margin-top:4rem"><img src="Floating_Villages/Floating%20village%20illos/Chinampa-illo.png" alt="Chinampa Illustration" style="width:100%;display:block;margin-top:-30%;margin-bottom:-30%;opacity:0;transition:opacity 0.9s ease"></div>
+    <div class="illo-reveal" style="overflow:hidden;padding-left:3rem;margin-top:5rem"><img src="Floating_Villages/Floating%20village%20illos/floatinggarden-all.png" alt="Floating Garden Illustration" style="width:100%;display:block;opacity:0;transition:opacity 0.9s ease"></div>
+  </div>
+</div>
+
+<h2 class="gallery-heading no-italic medium">Building a Floating Duck Coop</h2>
+
+<div class="deliverable-block" style="grid-template-columns:1.5fr 2fr;gap:1rem">
+  <div class="deliverable-desc">
+    <p>As a second intervention to address the local fishing decline, we developed a floating coop designed for domesticated ducks, a species already natively acclimated to the Tonle Sap's aquatic environment. While the floating gardens provide clean water and micronutrients through vegetable production, the coop introduces an alternative source of protein (and income) through egg harvesting.</p>
+    <p>Tools and Materials: Made with 5L plastic bottles, bamboo, rice bags, chicken wire and zipties.</p>
+  </div>
+  <div class="deliverable-video">
+    <img src="Floating_Villages/Floating%20village%20illos/duckcoop-illo.jpg" alt="Duck Coop Illustration" style="display:block;width:100%;margin-top:-15%">
+  </div>
+</div>
+
+<div class="deliverable-block">
+  <div class="deliverable-video">
+    <img src="Floating_Villages/Duckcoop/Duckcoop-8.jpg" alt="Duck Coop 8" style="width:100%;display:block">
+  </div>
+  <div class="deliverable-desc">
+    <p>Beyond food and income security, the coop can function as a biological filter. Much like the floating gardens, which utilize root systems to absorb excess nutrients from the lake, the ducks contribute to a managed ecosystem by foraging on invasive aquatic plants and insect larvae, while their waste is captured and diverted as high-nitrogen fertilizer for the adjacent floating gardens. This synergy transforms a simple animal shelter into a critical node of a closed-loop system.</p>
+    <p>Using traditional bamboo joinery methods that have been practiced in Cambodia for centuries, we maintained a simple design using low-cost materials.</p>
+  </div>
+</div>
+
+<p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;padding:0 2.5rem 1.5rem">Taking into account the dimensions of local bamboo and recycled bottles locally available on the Tonle Sap, I modeled a prototype for our floating duck coop in Rhino to estimate the length of bamboo sticks we would need.</p>
+<div class="gallery" style="grid-template-columns:repeat(4,1fr)">
+  <div class="gallery-item" style="overflow:hidden"><img src="Floating_Villages/Duck%20Coop%20rhino%20process/Screenshot%202025-12-30%20at%203.08.36%20PM.png" alt="Duck Coop Process 1" style="width:122%;margin-left:-10%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="Floating_Villages/Duck%20Coop%20rhino%20process/Screenshot%202025-12-31%20at%2011.14.25%20AM.png" alt="Duck Coop Process 2" style="width:120%;margin-left:-10%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="Floating_Villages/Duck%20Coop%20rhino%20process/Screenshot%202025-12-31%20at%2011.16.43%20AM.png" alt="Duck Coop Process 3" style="width:120%;margin-left:-10%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="Floating_Villages/Duck%20Coop%20rhino%20process/Screenshot%202025-12-31%20at%2011.17.27%20AM.png" alt="Duck Coop Process 4" style="width:120%;margin-left:-10%;display:block"></div>
+</div>
+
+<div class="gallery-duck">
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-1.jpeg" alt="Duck Coop 1"></div>
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-3.jpg"  alt="Duck Coop 3"></div>
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-4.jpeg" alt="Duck Coop 4"></div>
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-5.jpeg" alt="Duck Coop 5"></div>
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-6.jpeg" alt="Duck Coop 6"></div>
+  <div class="gallery-item span2"><img src="Floating_Villages/Duckcoop/Duckcoop-7.jpg"  alt="Duck Coop 7"></div>
+</div>
+
+<h2 class="gallery-heading no-italic medium"><em>How-to Guides on Making a Floating Duck Coop</em></h2>
+<div class="gallery" style="padding-top:2rem">
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-5.jpg" alt="Guide 5"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-6.jpg" alt="Guide 6"></div>
+  <div class="gallery-item" style="grid-column:span 2">
+    <h2 class="gallery-heading no-italic medium" style="padding-left:0;padding-top:4rem"><em>System Design: Modular Floating Gardens and Duck Coops working together</em></h2>
+    <div class="annotated-wrap">
+      <img src="Floating_Villages/Floating%20village%20illos/systems-illos2.jpg" alt="System Illustration">
+      <div class="hotspot" style="left:6%;top:42%">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label" style="top:50%;left:50%;transform:translateY(-50%)">Ducks can eat pests, unwanted plants and food scraps, providing fertile soil for the floating garden beds.</div>
+      </div>
+      <p style="position:absolute;left:2%;top:5%;width:340px;font-size:14px;font-weight:300;line-height:1.85;color:#555">Floating garden modules, when placed next to each other, create a connected root system overtime which forms a larger connected artificial island.</p>
+      <p style="position:absolute;right:1%;top:5%;width:310px;font-size:14px;font-weight:300;line-height:1.85;color:#555">Floating garden modules can connect to form a barrier, creating a closed area which ducks can swim and feed outside of the&nbsp;coop.</p>
+      <div class="hotspot" style="left:39.5%;top:76%">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label" style="bottom:1.5rem;left:50%;transform:translateX(-50%)">Plants in the floating gardens, like water hyacinths, water lettuce and water cabbage, can act as water filters, helping keep floating villages more safe and clean for humans and fish.</div>
+      </div>
+      <div class="hotspot" style="left:35%;top:42%">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label" style="bottom:1.5rem;left:50%;transform:translateX(-50%)">Users can grow local, edible plants suitable for floating gardens such as morning glory, lettuce and water cabbage.</div>
+      </div>
+      <div class="hotspot" style="left:61%;top:48%">
+        <div class="hotspot-dot"></div>
+        <div class="hotspot-label" style="bottom:1.5rem;left:50%;transform:translateX(-50%)">5L Bottles are commonly used in Cambodia and perform well in stabilizing the weight of the duck coop prototype during prototype testing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="gallery-heading no-italic medium"><span style="font-weight:300">Deliverable 2 (Education for Behavior Change):</span> Instructional materials on building floating gardens, duck coops, healthy practices and why these are important (English versions).</h2>
+
+<div style="padding:1.2rem 2.5rem 0;max-width:800px">
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">As our second design intervention, I encouraged my students to create instructional guides in both English and Khmer for the floating village community members, so our design interventions would be sustained after their implementation, unlike previous attempts at installing floating gardens in floating villages in Siem Reap. If community members understood the importance of creating and maintaining floating gardens and duck coops, this would increase the likelihood of them being sustained long enough to provide longterm value to the community, rather than being disassembled for their parts. All guides were created by Liger Leadership Academy students in Canva.</p>
+</div>
+
+<div class="gallery" style="padding-top:2rem">
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-1.jpg" alt="Guide 1"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-2.jpg" alt="Guide 2"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-3.jpg" alt="Guide 3"></div>
+  <div class="gallery-item"><img src="Floating_Villages/Guides/Guide-4.jpg" alt="Guide 4"></div>
+</div>
+
+<h2 class="gallery-heading no-italic medium"><span style="font-weight:300">Deliverable 3 (Advocacy):</span><br>Promotional Videos for NGOs helping rural and floating village communities in Siem Reap: Volunteer Building Cambodia, Water for Cambodia and the Lake Clinic</h2>
+
+<div class="deliverable-block">
+  <div class="deliverable-video">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/e-Fdkh8se3I" frameborder="0" allowfullscreen></iframe>
+    <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
+  </div>
+  <div class="deliverable-desc">
+    <p style="font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.3rem);font-weight:700;font-style:italic;margin-bottom:1.2rem">Water for Cambodia Video</p>
+    <p>This video documents our time visiting and interviewing leaders at a local organization in Siem Reap called 'Water For Cambodia', which works with rural communities in Siem Reap to provide clean water through low-tech interventions such as their bio-sand water filters.</p>
+  </div>
+</div>
+
+<div class="deliverable-block" style="margin-top:3rem">
+  <div class="deliverable-video">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/jrAZvmwgj3k" frameborder="0" allowfullscreen></iframe>
+    <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
+  </div>
+  <div class="deliverable-desc">
+    <p style="font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.3rem);font-weight:700;font-style:italic;margin-bottom:1.2rem">The Lake Clinic Cambodia Video</p>
+    <p>This video documents our time visiting and interviewing community members of a floating village in Siem Reap, in partnership with the Lake Clinic Cambodia team, to learn about the experiences and daily challenges of communities living in floating villages on the Tonle Sap Lake.</p>
+    <p>This video documents our field work, interviews with villagers and captures the challenges that organizations like the Lake Clinic Cambodia are already doing impactful work to address by providing accessible medical care to floating village communities.</p>
+  </div>
+</div>
+
+<div class="deliverable-block" style="margin-top:3rem">
+  <div class="deliverable-video">
+    <iframe width="100%" height="300" src="https://www.youtube.com/embed/YP6RA8oiXEE" frameborder="0" allowfullscreen></iframe>
+    <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
+  </div>
+  <div class="deliverable-desc">
+    <p style="font-family:var(--serif);font-size:clamp(1rem,1.8vw,1.3rem);font-weight:700;font-style:italic;margin-bottom:1.2rem">Volunteer Building Cambodia Video</p>
+    <p>This video documents our class experience as volunteers helping build a house for a rural Cambodian family as part of Volunteer Building Cambodia, a non-profit that raises money and organizes volunteer groups to build houses, toilets, wells and water filters for rural communities in Siem Reap.</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-arrow prev" onclick="lbStep(-1)">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-arrow next" onclick="lbStep(1)">›</button>
+  <p class="lb-count" id="lbCount"></p>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const base = 'Floating_Villages/Floating_villages_images/';
+const images = [1,2,3,4,5,6,7,8,9,10,11,12,13,14].map(n => base + 'floatingvillages-' + n + '.jpeg');
+let current = 0;
+
+function openLb(idx){
+  current = idx;
+  renderLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lbStep(dir){
+  current = (current + dir + images.length) % images.length;
+  renderLb();
+}
+function renderLb(){
+  document.getElementById('lbImg').src = images[current];
+  document.getElementById('lbCount').textContent = `${current + 1} / ${images.length}`;
+}
+
+new IntersectionObserver((entries, obs) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:0.2}).observe(document.querySelector('.section-hmw'));
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => openLb(parseInt(item.dataset.index)));
+  item.addEventListener('mouseenter', () => item.querySelector('img').classList.add('revealed'), {once:true});
+});
+
+document.querySelectorAll('.project-header-images img').forEach(img => {
+  img.addEventListener('mouseenter', () => img.classList.add('revealed'), {once:true});
+});
+document.querySelectorAll('.deliverable-circle').forEach(circle => {
+  circle.addEventListener('mouseenter', () => circle.classList.add('revealed'), {once:true});
+});
+
+const mapWrap = document.querySelector('.sidebar-map-wrap');
+if(mapWrap){
+  mapWrap.addEventListener('mouseenter', () => mapWrap.querySelector('img').classList.add('revealed'), {once:true});
+}
+
+document.querySelectorAll('.illo-reveal').forEach(wrap => {
+  wrap.addEventListener('mouseenter', () => {
+    wrap.querySelector('img').style.opacity = '1';
+  }, {once:true});
+});
+
+// Reveal images on scroll with stagger (all devices)
+const scrollReveal = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const el = entry.target;
+    setTimeout(() => {
+      if(el.tagName === 'IMG') el.classList.add('revealed');
+      else if(el.classList.contains('gallery-item')){
+        const img = el.querySelector('img');
+        if(img) img.classList.add('revealed');
+      } else if(el.classList.contains('illo-reveal')){
+        const img = el.querySelector('img');
+        if(img) img.style.opacity = '1';
+      }
+    }, i * 600);
+    scrollReveal.unobserve(el);
+  });
+}, {threshold:0.1});
+
+document.querySelectorAll('.gallery-item, .project-header-images img, .illo-reveal').forEach(el => scrollReveal.observe(el));
+document.querySelectorAll('.project-header-images img').forEach(img => {
+  img.addEventListener('click', () => openLb(parseInt(img.dataset.lbIndex)));
+});
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target === this) closeLb();
+});
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key === 'Escape') closeLb();
+  if(e.key === 'ArrowLeft') lbStep(-1);
+  if(e.key === 'ArrowRight') lbStep(1);
+});
+</script>
+</body>
+</html>

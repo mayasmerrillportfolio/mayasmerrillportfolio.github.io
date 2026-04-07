@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+.resume{max-width:780px;margin:0;padding:8rem 2.5rem 6rem}
+
+.resume-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--line)}
+.resume-header h1{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.resume-header .contact{font-size:13px;color:var(--mid);line-height:2}
+.resume-header a{color:var(--black);text-decoration:underline}
+
+.resume-section{margin-bottom:2.5rem}
+.resume-section h2{font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1.25rem;padding-bottom:0.5rem;border-bottom:1px solid var(--line)}
+
+.entry{margin-bottom:1.75rem}
+.entry-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:0.2rem}
+.entry-title{font-size:14px;font-weight:500;color:var(--black)}
+.entry-date{font-size:12px;color:var(--mid);white-space:nowrap}
+.entry-sub{font-size:13px;color:var(--mid);margin-bottom:0.5rem}
+.entry-body{font-size:13px;font-weight:300;line-height:1.85;color:#444}
+
+.skills-grid{display:grid;gap:0.75rem}
+.skill-row{font-size:13px;font-weight:300;line-height:1.7;color:#444}
+.skill-row strong{font-weight:500;color:var(--black)}
+
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  .resume{padding:6rem 1.25rem 4rem}
+  .entry-header{flex-direction:column;gap:0.1rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<img src="about-photo.jpg" alt="Maya Merrill" style="position:fixed;right:3rem;top:8rem;width:336px;object-fit:cover;display:block;z-index:10">
+
+<div class="resume">
+
+  <div class="resume-header" style="border-bottom:none;padding-bottom:0">
+    <h1>Maya Sayuri Merrill</h1>
+  </div>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:600px;margin-top:1rem;margin-bottom:2rem">I'm <strong>Maya</strong>, a multidisciplinary designer and artist working across 2D design, product to spatial design, photo and video. I love storytelling in different mediums and collaborating across cultures. I actively seek to work on projects that create a positive impact, solve problems and bring joy — and doing so with passionate people.</p>
+
+  <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);font-weight:400;letter-spacing:-0.02em;margin-bottom:1rem">Resume</h2>
+  <div class="contact" style="margin-bottom:2rem">
+    503.881.8463 &nbsp;·&nbsp;
+    <a href="mailto:mayasmerrill@gmail.com">mayasmerrill@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/maya-sayuri-merrill/" target="_blank">LinkedIn</a><br>
+    Physical Design &nbsp;·&nbsp; Digital Design
+  </div>
+
+  <div class="resume-section">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">University of Oregon, Clark Honors College — Bachelor of Fine Arts in Product Design</span>
+        <span class="entry-date">June 2024</span>
+      </div>
+      <div class="entry-sub">Eugene, OR &nbsp;·&nbsp; GPA: 4.00 &nbsp;·&nbsp; Dean's List, all terms &nbsp;·&nbsp; Presidential Scholar</div>
+      <div class="entry-body">Minors in Multimedia, Global Service (concentration in Environment), and Science Communication</div>
+    </div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Harvard University Graduate School of Design — Design Discovery 2025</span>
+        <span class="entry-date">July 2025</span>
+      </div>
+      <div class="entry-sub">Cambridge, MA &nbsp;·&nbsp; Participant in Architecture (3-Week Program)</div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2>Professional Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Field States Urban Design Firm — Communications Intern</span>
+        <span class="entry-date">Oct 2025 – Present</span>
+      </div>
+      <div class="entry-sub">Portland, OR (Hybrid) &nbsp;·&nbsp; 10 hr./week</div>
+      <div class="entry-body">Develop and manage social media content strategy for Field States and No Vacancy, shaping clear visual and narrative frameworks to communicate design intent, urban interventions, and community-based work. Produce original photo and video content documenting events, activations, and stakeholder interviews, translating spatial experiences and design processes into compelling digital stories.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Electric Aircraft Company — Contract Illustrator and Designer</span>
+        <span class="entry-date">Aug 2025 – Present</span>
+      </div>
+      <div class="entry-sub">Hillsboro, OR (Remote) &nbsp;·&nbsp; 10 hr./week</div>
+      <div class="entry-body">Collaborate directly with the founder to conceptualize an original electric aircraft, using iterative sketching, 3D modeling, and rendering to explore form, function, and feasibility. Produce early-stage visualizations and renderings for marketing and stakeholder materials.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Idea Consultancy — Branding & Communications Lead</span>
+        <span class="entry-date">Mar 2024 – Present</span>
+      </div>
+      <div class="entry-sub">Phnom Penh, Cambodia (Hybrid) &nbsp;·&nbsp; 10 hr./week</div>
+      <div class="entry-body">Designed a cohesive branding system for the ASEAN 2025 Startup Connect Summit, including conference-space graphics, merchandise, and digital assets. Developed visual deliverables that unified physical and digital environments, supporting a platform that connects founders across ASEAN member states with mentorship, resources, and tools.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Liger Leadership Academy — Digital Arts and Design Instructor</span>
+        <span class="entry-date">Aug 2024 – Jun 2025</span>
+      </div>
+      <div class="entry-sub">Phnom Penh, Cambodia &nbsp;·&nbsp; Princeton in Asia Fellowship &nbsp;·&nbsp; 30 hr./week</div>
+      <div class="entry-body">Led project-based learning courses in graphic design and product design — including 3D modeling and prototyping. Guided students through iterative design processes, emphasizing conceptual development, making, critique, and hands-on experimentation within a cross-cultural learning environment.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">United Nations Development Program — Health and Development Intern; Contract Junior Design Consultant</span>
+        <span class="entry-date">Jul 2024 – Dec 2024</span>
+      </div>
+      <div class="entry-sub">Geneva, Switzerland (Remote) / Phnom Penh, Cambodia &nbsp;·&nbsp; 10 hr./week</div>
+      <div class="entry-body">Supported UNDP staff by researching and editing investment cases, SDG briefs, and road safety reports, contributing to evidence-based policy and planning work. Visualized quantitative and qualitative data through clear graphics and layouts using Adobe Illustrator and InDesign.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Hanna Andersson — Product Development Intern</span>
+        <span class="entry-date">Jun 2024 – Aug 2024</span>
+      </div>
+      <div class="entry-sub">Portland, OR &nbsp;·&nbsp; 20 hr./week</div>
+      <div class="entry-body">Collaborated cross-functionally to design products for nonprofit partner Foster Love, working with partner factories in India to repurpose deadstock fabrics into production-ready designs. Supported CAD development and line-adoption meetings, assisting with file editing, design iteration, and coordination across design and manufacturing teams.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">CRCC Asia / ADDReC Design Firm — Design & Research Intern</span>
+        <span class="entry-date">Jun 2023 – Sep 2023</span>
+      </div>
+      <div class="entry-sub">Tokyo, Japan &nbsp;·&nbsp; 30 hr./week</div>
+      <div class="entry-body">Conducted design research on sustainability, culture, diversity, accessibility, and wellness, informing ADDReC Design Firm's approach to future architecture and tourism projects in Japan. Synthesized and presented findings to multidisciplinary teams.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">The Good — UX Design & Research Intern</span>
+        <span class="entry-date">Jun 2023 – Sep 2023</span>
+      </div>
+      <div class="entry-sub">Portland, OR (Remote) &nbsp;·&nbsp; 20 hr./week</div>
+      <div class="entry-body">Conducted UX research and competitor analyses, developed Figma mockups for marketing materials, and authored a published article on emerging UX design strategies.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Thesis Agency — Graphic Design Intern</span>
+        <span class="entry-date">Jun 2022 – Sep 2022</span>
+      </div>
+      <div class="entry-sub">Portland, OR &nbsp;·&nbsp; Emerging Leaders Internship Program &nbsp;·&nbsp; 30 hr./week</div>
+      <div class="entry-body">Partnered with the Nike account design team to develop a mock creative advertising campaign rebranding Beyond Toxics, an environmental justice NGO, using Figma, Adobe Illustrator, and Photoshop.</div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2>On-Campus Involvement</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">HOPES Conference — Branding Director & Student Panelist</span>
+        <span class="entry-date">Jan 2024 – Apr 2024</span>
+      </div>
+      <div class="entry-sub">Eugene, OR &nbsp;·&nbsp; 5 hr./week</div>
+      <div class="entry-body">Collaborated with architecture students to establish a cohesive visual identity and outreach strategy, spanning digital media and merchandise.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">University of Oregon Marketing and Communications — Graphic Designer, Illustrator & Video Editor</span>
+        <span class="entry-date">Jun 2021 – Jun 2024</span>
+      </div>
+      <div class="entry-sub">Eugene, OR &nbsp;·&nbsp; 20 hr./week</div>
+      <div class="entry-body">Developed a cohesive set of promotional graphics, illustrations, and original photo and video content using the Adobe Creative Suite to communicate career and educational resources and strengthen student outreach and engagement.</div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-row"><strong>Design:</strong> Adobe Illustrator, InDesign, Photoshop, Figma, hand sketching, rendering, prototyping, graphic design</div>
+      <div class="skill-row"><strong>3D Modeling & Fabrication:</strong> Rhino, SolidWorks; CAD modeling, rendering, and 3D printing</div>
+      <div class="skill-row"><strong>Video & Motion:</strong> Adobe Premiere Pro, After Effects, DaVinci Resolve</div>
+      <div class="skill-row"><strong>Languages:</strong> English (Native); French (Advanced — DALF C1, professional experience); Khmer and Japanese (Beginner)</div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2>Fellowships & Awards</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Circular Design Week (CDW) — Fellow</span>
+        <span class="entry-date">2025</span>
+      </div>
+      <div class="entry-body">Facilitated CDW in Kyoto, Japan (Nov 19–23), producing promotional video content in partnership with Re:Public (Tokyo).</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Science and Memory Fellowship — Fellow</span>
+        <span class="entry-date">2023</span>
+      </div>
+      <div class="entry-body">Media Intern with the U.S. Forest Service in Cordova, Alaska, creating content for the Copper River Delta Shorebird Festival.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Sally Smith & Dick Romm Enrichment Fund Award — Recipient</span>
+        <span class="entry-date"></span>
+      </div>
+      <div class="entry-body">Awarded $5,000 to support a design-focused internship in Tokyo based on academic excellence and leadership.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">International Design Excellence Awards (IDEA) — Finalist</span>
+        <span class="entry-date">2022</span>
+      </div>
+      <div class="entry-body">Finalist for a product design concept recognized by the Industrial Designers Society of America.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Design Nation Conference — Selected Attendee</span>
+        <span class="entry-date">2023</span>
+      </div>
+      <div class="entry-body">Chosen as 1 of 100 participants for the Business Today–hosted conference in New York City.</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">5 Rings — International Exhibitions</span>
+        <span class="entry-date"></span>
+      </div>
+      <div class="entry-body">Exhibited in Eugene, OR (June 2024); Dutch Design Week, Eindhoven, NL (Oct 18–26, 2025); Greener Manufacturing, Cologne, Germany (Nov 12–13, 2025).</div>
+    </div>
+  </div>
+
+  <div class="resume-section">
+    <h2>Hobbies and Interests</h2>
+    <div class="skill-row">Traveling (31 countries and counting) &nbsp;·&nbsp; Language learning &nbsp;·&nbsp; Long-distance running (2 marathons) &nbsp;·&nbsp; Illustration &nbsp;·&nbsp; Music (a cappella, choir, piano, digital production)</div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+</body>
+</html>

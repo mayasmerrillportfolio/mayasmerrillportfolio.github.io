@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Rings Exhibition — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── HEADER ── */
+.project-header{
+  padding:8rem 2.5rem 4rem;
+  max-width:900px;
+}
+.project-cat{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.project-title em{font-style:italic;color:var(--mid)}
+.project-desc{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  .project-header{padding:5.5rem 1.25rem 2rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;padding:8rem 2.5rem 4rem;max-width:100%">
+  <div>
+    <p class="project-cat">Product Design</p>
+    <h1 class="project-title">5 Rings<br><em>Exhibition</em></h1>
+    <p class="project-desc">Eugene, Oregon</p>
+    <p class="project-desc">In Spring 2024, I collaborated with other Product Design students at the University of Oregon to design an exhibition featuring our ring designs inspired by the Track Olympic trials in Eugene. We each produced our ring design in five different materials and manufacturing methods to showcase the different environmental impacts of each method and material. I designed and produced the pictured rings, a design titled 'Feather,' and was the main branding designer.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">This exhibition has been featured in the following locations and events: 5th Street Market in Eugene, Oregon (June 2024), Dutch Design Week in Eindhoven (October 18-26 2025) and Greener Manufacturing in Cologne, Germany (Nov. 12-13 2025).</p>
+  </div>
+  <div class="gallery-item"><img src="rings-1.png" alt="5 Rings Exhibition" style="width:100%;display:block"></div>
+</header>
+
+<h2 class="gallery-heading no-italic medium">Branding Design</h2>
+
+<p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;padding:0 2.5rem 1.5rem;max-width:720px">Logo and branding designed by me using Adobe Illustrator. Graphics designed in collaboration with 5 Rings student designers.</p>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:85%">
+    <div class="gallery-item"><img src="DD-graphic.png" alt="Digital Display Branding" style="width:100%;display:block"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.6rem">
+      <div class="gallery-item"><img src="LCA-1.jpg" alt="LCA 1" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="LCA-2.jpg" alt="LCA 2" style="width:100%;display:block"></div>
+    </div>
+
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="footprint.jpg" alt="Footprint" style="width:100%;display:block"></div>
+  </div>
+</div>
+
+<h2 class="gallery-heading no-italic medium">5 Rings - 5 Materials & Manufacturing Methods</h2>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:85%;display:flex;flex-direction:column;gap:0.6rem">
+    <div class="gallery-item"><img src="bronze.jpg" alt="Bronze Ring" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="silver-resin.jpg" alt="Silver Ring" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="stainless.jpg" alt="Stainless Ring" style="width:100%;display:block"></div>
+  </div>
+</div>
+
+<h2 class="gallery-heading no-italic medium">Ideation Sketching</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.6rem;padding:0 2.5rem 6rem">
+  <div class="gallery-item"><img src="sketch1.png" alt="Sketch 1" style="width:100%;display:block"></div>
+  <div class="gallery-item"><img src="sketch2.png" alt="Sketch 2" style="width:100%;display:block"></div>
+  <div class="gallery-item"><img src="sketch3.png" alt="Sketch 3" style="width:100%;display:block"></div>
+  <div class="gallery-item"><img src="sketch4.png" alt="Sketch 4" style="width:100%;display:block"></div>
+</div>
+
+<h2 class="gallery-heading no-italic medium">3D Modeling - Using Rhino & Grasshopper</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:0.6rem;padding:0 2.5rem 6rem">
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:1"><img src="model1.png" alt="Model 1" style="width:100%;height:100%;display:block;object-fit:cover"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:1"><img src="model2.png" alt="Model 2" style="width:100%;height:100%;display:block;object-fit:cover"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:1"><img src="model3.png" alt="Model 3" style="width:100%;height:100%;display:block;object-fit:contain;transform:scale(1.25)"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:1"><img src="model4.png" alt="Model 4" style="width:100%;height:100%;display:block;object-fit:cover"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:1"><img src="model5.png" alt="Model 5" style="width:100%;height:100%;display:block;object-fit:cover"></div>
+</div>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:80%">
+    <div class="gallery-item"><img src="heroshot.png" alt="Hero Shot" style="width:100%;display:block"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

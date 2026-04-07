@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Nations Development Program — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 0 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%">
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Art Direction & Digital Design</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">United Nations<br><em style="font-style:italic;color:var(--mid)">Development Program</em></h1>
+  <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem">Switzerland and Cambodia</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px">Graphics designed for UNDP Reports during my fellowship and contract work with the UNDP in Health and Development based in Geneva, Switzerland and Phnom Penh, Cambodia.</p>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <p class="gallery-heading">Health Investment Case Graphic Design</p>
+  <div style="width:70%">
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-1.jpg" alt="UNDP 1" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Graphic designed for a UNDP Health Investment case as part of my UNDP Health internship. Design in Adobe Illustrator (2024)</p>
+  </div>
+  <p class="gallery-heading" style="font-style:normal">Layout and Graphic Design for UNDP Cambodia: 'Cambodia's Graduation from Least Developed Country Status'</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px;margin-top:0.5rem">While working as a junior consultant for the UNDP Cambodia communications team, I designed the layout and infographics of a report on Cambodia's Graduation from Least Developed Country (LDC) Status: Preparedness and Potential Economic and Social Impacts. Read more about the project <a href="https://www.undp.org/cambodia/publications/cambodias-graduation-least-developed-country-ldc-status-preparedness-and-potential-economic-and-social-impacts#:~:text=November%2011%2C%202024,poverty%2C%20with%20differential%20gender%20impacts." target="_blank" style="color:var(--black);text-decoration:underline">here</a>.</p>
+  <div style="width:70%;margin-top:1.5rem">
+    <div class="gallery-item"><img src="undp-report1.png" alt="Report 1" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report2.png" alt="Report 2" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report3.png" alt="Report 3" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report4.png" alt="Report 4" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report5.png" alt="Report 5" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report6.png" alt="Report 6" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report7.png" alt="Report 7" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-report8.png" alt="Report 8" style="width:100%;display:block"></div>
+  </div>
+  <p class="gallery-heading" style="font-style:normal">Backdrop and Individual Infographics Design</p>
+  <div style="width:70%;margin-top:0.6rem">
+    <div class="gallery-item"><img src="undp-graphic1.jpg" alt="Graphic 1" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic2.jpg" alt="Graphic 2" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic3.jpg" alt="Graphic 3" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic4.jpg" alt="Graphic 4" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic5.jpg" alt="Graphic 5" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic6.jpg" alt="Graphic 6" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="undp-graphic7.jpg" alt="Graphic 7" style="width:100%;display:block"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

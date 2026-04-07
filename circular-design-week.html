@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circular Design Week 2025 — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%">
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Photo &amp; Video</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">Circular Design<br><em style="font-style:italic;color:var(--mid)">Week 2025</em></h1>
+  <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem">Kyoto, Japan</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">Circular Design Week (CDW) is a platform that explores the possibility of place-based circular designs that are enacted in, and emerge out of, the traditions, daily practices, and complex relationalities unique to the Asia-Pacific region.</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">For its third year, held over five days from November 19 to 23, 2025, in Kyoto and Shiga, the program was themed: "Responding in Time: Infrastructuring in the Post-Human Fūdo (風土)." How might we reconsider our understanding of "time", for a systemic transition toward circular societies? In response to this question, CDW 2025 sought to step back from the dominant framework of modern clock time (Chronos) to experiment with an attunement to the plural temporalities (Kairos) that interweave our fūdo (風土).</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">The fieldwork featured collaborations with world-renowned authority in visual and sensory ethnography Professor Sarah Pink, and participatory design Professor Yoko Akama. Using a unique "Kannō Method," we explored the concepts of "attuning" and "responding" to the temporalities that arise within our relationships with the myriad entities that constitute our fūdo.</p>
+  <p style="font-size:13px;font-weight:300;line-height:1.85;color:#555;margin-bottom:0.4rem">▼ CDW25 Official Website<br><a href="https://cdw.re-public.jp/2025/en/" target="_blank" style="color:var(--black);text-decoration:underline">cdw.re-public.jp/2025/en/</a></p>
+  <p style="font-size:13px;font-weight:300;line-height:1.85;color:#555;margin-bottom:2rem">▼ CDW25 Archives<br><a href="https://cdw.re-public.jp/2025/en/archive/" target="_blank" style="color:var(--black);text-decoration:underline">cdw.re-public.jp/2025/en/archive/</a></p>
+  <div style="overflow:hidden;aspect-ratio:16/9;margin-bottom:1rem">
+    <iframe src="https://www.youtube.com/embed/k8hcZhBv8dk" frameborder="0" allowfullscreen style="width:100%;height:100%;display:block"></iframe>
+  </div>
+  <p style="font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);margin-bottom:0.5rem">Video Production Team</p>
+  <p style="font-size:13px;font-weight:300;line-height:2;color:#555">Videography: Valentina Vasile, Kae Hirose<br>Videography Support: Shin Okamoto, Itaru Suzuki<br>Video Editing: Maya Merrill</p>
+</header>
+
+<div style="padding:0 2.5rem 6rem"></div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

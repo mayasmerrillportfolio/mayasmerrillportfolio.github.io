@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provinces of Cambodia — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%">
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Art Direction & Digital Design</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">Provinces of Cambodia —<br><em style="font-style:italic;color:var(--mid)">Illustrated Maps</em></h1>
+  <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem">Phnom Penh, Cambodia</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px">While teaching students at AUPP Liger Leadership Academy, I designed and led a project-based course aimed at teaching sixty 7th and 8th grade Cambodian students skills in Adobe Illustrator and InDesign. My co-facilitator, Souyeth Kret, and I guided this project, which involved helping students illustrate and label (in English and Khmer) significant cultural landmarks from all 25 provinces of Cambodia and assemble them into maps following color and font guidelines.</p>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:70%;margin-top:2rem">
+    <img src="cambodiamap-1.jpg" alt="Map of Cambodia" style="width:100%;display:block">
+  </div>
+  <div style="width:56%;margin-top:2rem;position:relative;padding-bottom:129.41%">
+    <iframe class="scribd_iframe_embed" src="https://www.scribd.com/embeds/903747193/content?start_page=1&view_mode=scroll&access_key=key-sdSOyViS5rbdiiPwUsxU" scrolling="no" frameborder="0" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+  </div>
+  <p style="width:56%;font-size:12px;color:var(--mid);margin-top:0.5rem">Illustrated and labeled by students at AUPP Liger Leadership Academy. Art Direction by Maya Merrill.</p>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+</body>
+</html>

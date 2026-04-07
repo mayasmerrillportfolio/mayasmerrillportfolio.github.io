@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.92);
+  align-items:center;justify-content:center;cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{
+  max-width:90vw;max-height:90vh;
+  object-fit:contain;display:block;
+  user-select:none;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%">
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Analog</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem"><em style="font-style:italic;color:var(--mid)">Art</em></h1>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:70%;margin:0">
+  <!-- R1: Eugene Saturday Market, Raindrops on Roses -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Eugene Saturday Market</p>
+      <div class="gallery-item"><img src="painting-veggie.jpg" alt="Veggie" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2021. Acrylic on Canvas.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Raindrops on Roses</p>
+      <div class="gallery-item"><img src="painting-rose.jpg" alt="Rose" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2019. Acrylic on Canvas.</p>
+    </div>
+  </div>
+  <!-- R2: Through the Jar Glass, Sushi Restaurant -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Through the Jar Glass</p>
+      <div class="gallery-item"><img src="painting-jar.jpg" alt="Jar" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2020. Acrylic on Canvas.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Sushi Restaurant</p>
+      <div class="gallery-item"><img src="painting-fam.jpg" alt="Fam" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2018. Charcoal and Pencil on Paper.</p>
+    </div>
+  </div>
+  <!-- R3: Waves of Whimsy, Homage to Frida Kahlo -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Waves of Whimsy</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem">
+        <div class="gallery-item"><img src="painting-guitar1.jpeg" alt="Guitar 1" style="width:100%;display:block"></div>
+        <div class="gallery-item"><img src="painting-guitar2.jpg" alt="Guitar 2" style="width:100%;display:block"></div>
+      </div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2020. Acrylic Marker on Guitar.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Homage to Frida Kahlo</p>
+      <div class="gallery-item"><img src="painting-frida.jpeg" alt="Frida" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2019. Mural at South Salem High school. Acrylic on paperboard.</p>
+    </div>
+  </div>
+  <!-- R4: Harumi, Daydreaming -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Harumi (Spring Beauty)</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem">
+        <div class="gallery-item" style="aspect-ratio:827/995"><img src="painting-bag1.jpg" alt="Bag 1" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="gallery-item" style="aspect-ratio:827/995"><img src="painting-bag2.jpg" alt="Bag 2" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2021. Acrylic on canvas bag.</p>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.6rem">Daydreaming</p>
+      <div class="gallery-item"><img src="painting-daydreaming.jpg" alt="Daydreaming" style="width:100%;display:block"></div>
+      <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">2019. Acrylic on Paperboard.</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+
+const _lb = document.getElementById('lightbox');
+const _lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    _lbImg.src = img.src;
+    _lb.classList.add('open');
+  });
+});
+_lb.addEventListener('click', () => _lb.classList.remove('open'));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') _lb.classList.remove('open'); });
+</script>
+</body>
+</html>

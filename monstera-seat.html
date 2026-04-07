@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monstera Seat — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start;padding:8rem 2.5rem 2rem;max-width:100%">
+  <div>
+    <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Product Design</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">Monstera<br><em style="font-style:italic;color:var(--mid)">Seat</em></h1>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">A bicycle seat inspired by monstera leaves, designed for quicker drying time and less material waste. Modeled with Rhino and Grasshopper using voronoi patterns.</p>
+  </div>
+  <div class="gallery-item" style="overflow:hidden"><img src="monstera-2.jpg" alt="Monstera Seat 2" style="width:100%;display:block"></div>
+</header>
+
+<div style="padding:0 2.5rem 3rem">
+  <div class="gallery-item" style="overflow:hidden;width:78%"><img src="Bikemodels-2.png" alt="Bike Models" style="width:100%;display:block;margin-top:-35%"></div>
+  <div class="gallery-item" style="overflow:hidden;width:78%;margin-top:0.6rem"><img src="monstera-1.jpg" alt="Monstera Seat 1" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:78%;margin-top:2.5rem"><img src="MelonRouge-Portfolio-MerrillMaya_Page_30.jpg" alt="MelonRouge Portfolio" style="width:105%;display:block;margin-top:-3%"></div>
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:5rem 0 1.5rem">Ideation Sketching</h2>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;width:78%;margin-bottom:1.25rem">I began by first ideating ways to use parametric design for bike safety by utilizing it for helmets. However, after some 3D modeling, I shifted to using parametric design (specifically voronoi patterning) for creating a quicker-drying bike seat.</p>
+  <div class="gallery-item" style="overflow:hidden;width:78%;margin-bottom:0.6rem"><img src="Sketches.jpg" alt="Ideation Sketching" style="width:100%;display:block"></div>
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:5rem 0 5rem">Grasshopper Modeling Process</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.6rem;margin-top:0">
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-A1.png" alt="A1" style="width:81%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-A2.png" alt="A2" style="width:115%;display:block;margin-top:-20%;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-A3.png" alt="A3" style="width:100%;display:block;margin-top:5%;margin-left:-5%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-A4.png" alt="A4" style="width:85%;display:block;margin-top:5%"></div>
+
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-A1.png" alt="A1" style="width:81%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-B2.png" alt="B2" style="width:115%;display:block;margin-top:-27%;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-B3.png" alt="B3" style="width:110%;display:block;margin-left:-5%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-B4.png" alt="B4" style="width:101%;display:block"></div>
+
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-C1.png" alt="C1" style="width:90%;display:block;margin-top:-8%;margin-left:-5%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-C2.png" alt="C2" style="width:101%;display:block;margin-top:-10%;margin-left:-5%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-C3.png" alt="C3" style="width:115%;display:block;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-C4.png" alt="C4" style="width:101%;display:block"></div>
+
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-D1.png" alt="D1" style="width:81%;display:block;margin-top:-8%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-D2.png" alt="D2" style="width:110%;display:block;margin-top:-28%;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-D3.png" alt="D3" style="width:96%;display:block;margin-left:-1%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-D4.png" alt="D4" style="width:100%;display:block"></div>
+
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-E1.png" alt="E1" style="width:100%;display:block;margin-top:-8%;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-E2.png" alt="E2" style="width:115%;display:block;margin-top:-30%;margin-left:-10%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-E3.png" alt="E3" style="width:91%;display:block;margin-top:8%;margin-left:-1%"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-E4.png" alt="E4" style="width:100%;display:block;margin-top:8%"></div>
+  </div>
+</div>
+
+<div style="padding:0 2.5rem 3rem">
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:5rem 0 1.5rem">3D Print Prototyping</h2>
+  <div class="gallery-item" style="overflow:hidden;width:78%"><img src="bike-context-2.jpg" alt="3D Print Prototyping" style="width:100%;display:block"></div>
+
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:5rem 0 1.5rem">Final Design</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem">
+    <div class="gallery-item" style="overflow:hidden;grid-row:span 2"><img src="bike-context-1.jpg" alt="Final Design 1" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-context-3.jpg" alt="Final Design 3" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;grid-row:span 2"><img src="bike-context-4.jpg" alt="Final Design 4" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-context-10.jpg" alt="Final Design 10" style="width:130%;display:block;margin-left:-15%"></div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div class="gallery-item" style="overflow:hidden;flex:1"><img src="bike-context-5.jpg" alt="Final Design 5" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div class="gallery-item" style="overflow:hidden;flex:1"><img src="bike-context-11.jpg" alt="Final Design 11" style="width:120%;height:120%;object-fit:cover;display:block"></div>
+    </div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-context-6.jpg" alt="Final Design 6" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="bike-context-9.jpg" alt="Final Design 9" style="width:100%;display:block"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

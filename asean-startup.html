@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASEAN Startup Connect 2025 — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 0 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.92);
+  align-items:center;justify-content:center;cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;user-select:none}
+
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%;display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start">
+  <div>
+    <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Art Direction & Digital Design</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">ASEAN Startup<br><em style="font-style:italic;color:var(--mid)">Connect 2025</em></h1>
+    <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem">Phnom Penh, Cambodia</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">ASC Summit 2025 Conference connected founders, MSMEs, policymakers and innovators with practical tools, trusted partners and actionable insights. The summit was built on a belief that real success starts with shared values and lasting relationships. Taking place in Phnom Penh, Cambodia, this summit brought together leaders from across the ASEAN member states (Indonesia, Malaysia, Philippines, Singapore, Thailand, Brunei, Vietnam, Laos, Myanmar, Cambodia and Timor-Leste) and Japan.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-top:1rem">I served as the Creative Director and Designer of the summit, designing the branding guide and various digital and physical deliverables used including lanyards, social media graphics, digital displays and the platform launch animation featured below, in collaboration with the ASEAN Startup Connect organizing team: Mr. Galeno Chua (Director), Serey Rath (Management and Operations), and Marika Vallier (Facilitator and Organizer).<br><br>I also led a volunteer media team to help capture the conference through photos, videos and interview clips that we have been continuously editing and posting as promotional content on our various social media platforms (Facebook, Instagram, Youtube, Linkedin, Spotify, Tiktok @aseanstartupconnect). <br><br>Read more about the conference <a href="https://aseanstartupconnect.org/en" target="_blank" style="color:var(--black);text-decoration:underline">here</a>.</p>
+  </div>
+  <div style="overflow:hidden;display:flex;flex-direction:column;gap:0.6rem">
+    <img src="asc-2.jpg" alt="ASEAN Startup Connect 2025" style="width:100%;display:block">
+    <img src="asc-12.jpg" alt="ASEAN Startup Connect 2025" style="width:100%;display:block">
+  </div>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <p class="gallery-heading" style="font-style:normal">Branding Guide</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px;margin-bottom:1.5rem">As Creative Director, I designed the ASEAN Startup Connect logo to represent the 11 ASEAN member states plus Japan, as one of the main supporters of the conference. All designs made in Adobe Illustrator.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-brand-07.jpg" alt="Branding Guide 7" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-08.jpg" alt="Branding Guide 8" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-09.jpg" alt="Branding Guide 9" style="width:100%;display:block"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-brand-10.jpg" alt="Branding Guide 10" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-11.jpg" alt="Branding Guide 11" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-12.jpg" alt="Branding Guide 12" style="width:100%;display:block"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-brand-13.jpg" alt="Branding Guide 13" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-14.jpg" alt="Branding Guide 14" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-brand-15.jpg" alt="Branding Guide 15" style="width:100%;display:block"></div>
+  </div>
+
+  <p class="gallery-heading" style="font-style:normal">Digital Displays</p>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-backdrop-1.png" alt="Backdrop 1" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-backdrop-2.png" alt="Backdrop 2" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-backdrop-3.png" alt="Backdrop 3" style="width:100%;display:block"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+    <div class="gallery-item"><img src="asc-4.jpg" alt="ASC 4" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-5.jpg" alt="ASC 5" style="width:100%;display:block"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-6.jpg" alt="ASC 6" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-7.jpg" alt="ASC 7" style="width:100%;display:block"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-10.jpg" alt="ASC 10" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-11.jpg" alt="ASC 11" style="width:100%;display:block"></div>
+  </div>
+
+  <p class="gallery-heading" style="font-style:normal">Platform Launch Animation</p>
+
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px;margin-bottom:1.5rem">Platform launch animation made by me, shown at the ASC 2025 Platform launch presentation on Day 1. Video edited in collaboration with Kimchen Chon.</p>
+
+  <div style="width:70%;margin-top:0.6rem;position:relative;padding-bottom:39.375%;height:0;overflow:hidden">
+    <iframe src="https://www.youtube.com/embed/VYQsUxLmGso" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <p class="gallery-heading" style="font-style:normal">ASC Participant Merch</p>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;max-width:700px;margin-bottom:1.5rem">Delegate, Roundtable guest, Participant, Organizer, Moderator, Facilitator and Volunteer nametags and lanyard.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:0.6rem;margin-top:0.6rem">
+    <div class="gallery-item"><img src="asc-nc-1.png" alt="Namecard 1" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-2.png" alt="Namecard 2" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-3.png" alt="Namecard 3" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-5.png" alt="Namecard 5" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-6.png" alt="Namecard 6" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-7.png" alt="Namecard 7" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-nc-8.png" alt="Namecard 8" style="width:100%;display:block"></div>
+  </div>
+
+  <div class="gallery-item" style="margin-top:3.5rem"><img src="asc-lanyard.png" alt="ASC Lanyard" style="width:100%;display:block"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+    <div class="gallery-item"><img src="asc-8.jpg" alt="ASC 8" style="width:100%;display:block"></div>
+    <div class="gallery-item"><img src="asc-13.jpg" alt="ASC 13" style="width:100%;display:block"></div>
+  </div>
+
+</div>
+
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+
+const _lb = document.getElementById('lightbox');
+const _lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => { _lbImg.src = img.src; _lb.classList.add('open'); });
+});
+_lb.addEventListener('click', () => _lb.classList.remove('open'));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') _lb.classList.remove('open'); });
+</script>
+</body>
+</html>

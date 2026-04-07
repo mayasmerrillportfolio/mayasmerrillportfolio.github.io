@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HANNAmal Lovey — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1.17fr;gap:3rem;align-items:stretch;padding:8rem 2.5rem 2rem;max-width:100%">
+  <div>
+    <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Product Design</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">HANNAmal<br><em style="font-style:italic;color:var(--mid)">Lovey</em></h1>
+    <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem">Portland, Oregon</p>
+    <p style="font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:700;line-height:1.3;color:#555;font-style:italic;margin-bottom:1.2rem">How might we create a product that provides comfort to foster kids and also repurposes deadstock fabric waste?</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">While at Hanna Andersson, I collaborated with design, product development, quality assurance, sustainability, merchandising and technical design teams and with Hanna Andersson's partner factories in India to develop the 'HANNAmal Lovey' blanket design. The purpose was to design a product for foster kids at their partner non-profit <a href="https://fosterlove.com/volunteer/?utm_source=google&utm_campaign=teambuilding&utm_medium=cpc&utm_term=&hsa_kw=&hsa_mt=b&hsa_tgt=dsa-3500001&hsa_src=g&hsa_ad=740097702929&hsa_ver=3&hsa_cam=17604653934&hsa_net=adwords&hsa_acc=7381810173&hsa_grp=139428229898&gad_source=1&gad_campaignid=17604653934&gbraid=0AAAAADuFIQ96Tq0PIMn3sm0i-YYToP9zu&gclid=Cj0KCQjwkMjOBhC5ARIsADIdb3ehNcYc8hHVINlnasWgTK0sEpzDRYmFtpi8DEQ0wsA2ZentaoScFW4aAiYKEALw_wcB" target="_blank" style="color:#555">Foster Love</a>, made almost entirely from scrap fabric waste at Hanna Andersson's partner factories: Mira, Seatoman and Richa.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-top:1rem">Deadstock refers to leftover or unused fabric that was originally manufactured for a purpose but never sold or used in production. This could be due to overproduction, canceled orders, or slight imperfections that prevent it from meeting a brand's standard (<a href="https://www.goingzerowaste.com/blog/deadstock-material/" target="_blank" style="color:#555">source</a>). Since many large companies outsource their soft goods manufacturing to Asia, often in countries with lower environmental and labor regulations to minimize costs, these countries bear the brunt of the environmental impacts of textile waste (<a href="https://www.unep.org/news-and-stories/press-release/unsustainable-fashion-and-textiles-focus-international-day-zero" target="_blank" style="color:#555">source</a>). This project aims to use product design as an intervention in this cycle, creating something of value from material that would otherwise be discarded.</p>
+  </div>
+  <div class="gallery-item" style="overflow:hidden"><img src="hannamal-1.png" alt="HANNAmal Lovey 1" style="width:120%;height:100%;object-fit:cover;display:block;margin-left:-10%"></div>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 0 1.25rem">Sketching and Research</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;width:80%;margin-top:1.5rem">
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-3.png" alt="HANNAmal 3" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-4.png" alt="HANNAmal 4" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-25.png" alt="HANNAmal 25" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-26.png" alt="HANNAmal 26" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-27.png" alt="HANNAmal 27" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="hannamal-28.png" alt="HANNAmal 28" style="width:100%;display:block"></div>
+  </div>
+
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 0 1.25rem">Process, Iteration &amp; Collaboration</h2>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:2rem;width:92%">
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss01.png" alt="Presentation Screenshot 1" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.78"><img src="hannamal-ss02.png" alt="Presentation Screenshot 2" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss03.png" alt="Presentation Screenshot 3" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss04.png" alt="Presentation Screenshot 4" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss05.png" alt="Presentation Screenshot 5" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 0 1.25rem">Creating Patterns from available deadstock &amp; sending to vendors</h2>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss06.png" alt="Presentation Screenshot 6" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 0 1.25rem">Rapid Prototyping</h2>
+    <div class="gallery-item" style="overflow:hidden;aspect-ratio:1.82"><img src="hannamal-ss07.png" alt="Presentation Screenshot 7" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

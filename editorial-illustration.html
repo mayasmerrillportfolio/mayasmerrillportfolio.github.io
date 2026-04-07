@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editorial Illustration — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 0 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.92);
+  align-items:center;justify-content:center;cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;user-select:none}
+
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
+  <div>
+    <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Art Direction & Digital Design</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem"><em style="font-style:italic;color:var(--mid)">Editorial Illustration</em></h1>
+    <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem">Eugene, Oregon</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">As Art Director for Ethos Magazine, I created illustrations, led a team of illustrators and collaborated with designers, photographers and writers across Ethos to create visuals that represented the spirit of Ethos stories. Ethos sought to amplify the voices of historically marginalized communities through student journalism, photography and artwork. As an illustrator for Align magazine, I worked with writers and photographers to illustrate artwork based around all topics related to fashion, art and culture.</p>
+  </div>
+  <div style="overflow:hidden">
+    <img src="editorial-heat2.jpg" alt="Heat 2" style="width:100%;display:block">
+  </div>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <div style="width:60%;margin-top:3.5rem">
+    <div class="gallery-item"><img src="editorial-heat.png" alt="Heat" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Illustration for 'Housing During the Heat Wave' article on the effects of the 2021 summer heat wave among vulnerable groups in the Eugene community who lack adequate air conditioning and housing. Created in Adobe Illustrator in 2021.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+      <div class="gallery-item"><img src="editorial-cope.png" alt="Cope" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="editorial-ephemeralthing.jpg" alt="Ephemeral Thing" style="width:100%;display:block"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.5rem">
+      <p style="font-size:12px;color:var(--mid)">Illustration for 'Drinking to Cope' article on alcohol consumption during the pandemic among University of Oregon students. Created in Adobe Illustrator in 2021.</p>
+      <p style="font-size:12px;color:var(--mid)">Illustration accompanying 'An Ephemeral Thing', an Ethos blog piece on the presence of performing arts in Eugene. Made in Adobe Illustrator in 2021.</p>
+    </div>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="editorial-womenchc.jpg" alt="Women CHC" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Illustration for 'Women in the Honors College', on the power imbalance between male-presenting and female-presenting students in Honors College courses. Made in Adobe Illustrator in 2021.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+      <div class="gallery-item"><img src="editorial-outdoorsy.png" alt="Outdoorsy" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="editorial-outdoorsy2.jpeg" alt="Outdoorsy 2" style="width:100%;display:block"></div>
+    </div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Digital Illustration accompanying a piece from Ethos Magazine, on the Outdoor Program at the University of Oregon and their 'Redefining Outdoorsy' Campaign. This program seeks to increase diversity in, and access to, the outdoors among the Eugene community. Created in Adobe Illustrator.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+      <div class="gallery-item"><img src="editorial-lbiz1.jpg" alt="LBiz 1" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="editorial-lbiz2.jpg" alt="LBiz 2" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="editorial-lbiz3.jpg" alt="LBiz 3" style="width:100%;display:block"></div>
+    </div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Set of three illustrations made in Adobe Illustrator for a story on Latino Businesses in Eugene, Oregon, for Ethos Magazine.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+      <div class="gallery-item"><img src="editorial-outreach1.jpg" alt="Outreach 1" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="editorial-outreach2.jpeg" alt="Outreach 2" style="width:100%;display:block"></div>
+    </div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Illustration for 'Bent Spoke Outreach', on the local volunteers at Bent Spoke Outreach in Eugene, Oregon who bike and deliver resources to houseless people in the community. Made in Adobe Illustrator in 2022.</p>
+    <p class="gallery-heading" style="font-style:normal">Science Communication</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-top:3.5rem">I use illustration as a form of science communication to visually communicate complex topics in an engaging and accessible way, from illustrating the inner workings of architectural designs to creating land restoration content.</p>
+    <div class="gallery-item" style="margin-top:2rem"><img src="scicomm-1.jpg" alt="Passive House" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I illustrated an exploded view of a passive house design, to communicate its components and how they contribute to creating a highly energy-efficient house as part of my science communication journalism story in the Science Story 2023 class. After interviewing and conducting research, I created this infographic based on the design of Peter and Lori Kugler's passive house in Eugene, Oregon. Check out the published online story <a href="https://blogs.uoregon.edu/uosciencestory/house/" target="_blank" style="color:var(--black);text-decoration:underline">'Saving Energy One Design at a Time'</a>.</p>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="scicomm-3.jpg" alt="Ice and Climate Change" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Created in collaboration with Sera Lew and Aletha Lengkong for our Honors College Ice and Climate Change course. We approached researching the cryosphere from the lenses of art, science and politics and this culminated in a research poster presenting our findings with an illustration created by Aletha and I using Adobe Illustrator and Procreate.</p>
+  </div>
+</div>
+
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+
+const _lb = document.getElementById('lightbox');
+const _lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => { _lbImg.src = img.src; _lb.classList.add('open'); });
+});
+_lb.addEventListener('click', () => _lb.classList.remove('open'));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') _lb.classList.remove('open'); });
+</script>
+</body>
+</html>

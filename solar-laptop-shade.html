@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portable Solar Charging Laptop Shade — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── HEADER ── */
+.project-cat{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.project-title em{font-style:italic;color:var(--mid)}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start;padding:8rem 2.5rem 2rem;max-width:100%">
+  <div>
+    <p class="project-cat">Product Design</p>
+    <h1 class="project-title">Portable Solar Charging<br><em>Laptop Shade</em></h1>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">Eugene, Oregon</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">For my 2024 design capstone, I decided to revisit and materialize a 2020 design concept: a laptop shade that not only blocks the sun's rays from creating screen glare, but that also utilizes them to charge a laptop while working outdoors. I designed and built a fully-functioning portable solar charging laptop shade called the 'Solar Companion' to address the main problems I experienced while working outside: screen glare and laptop charge.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.6rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;align-items:start">
+      <iframe src="https://www.youtube.com/embed/Z0qtvHCU9YM" frameborder="0" allowfullscreen style="width:100%;height:100%;display:block"></iframe>
+      <div class="gallery-item" style="overflow:hidden;aspect-ratio:3/4"><img src="IMG_2113.jpg" alt="Context 8" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    </div>
+    <p style="font-size:11px;font-weight:300;color:var(--mid)">Video filmed and edited by Donovan Snider</p>
+  </div>
+</header>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;padding:2rem 2.5rem 2rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="laptop-1.jpg" alt="Laptop Shade 1" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="laptop-2.jpg" alt="Laptop Shade 2" style="width:100%;display:block"></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;padding:0 2.5rem 2rem">
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="IMG_2107.jpg" alt="Context 7" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="DSC_0038-2.jpg" alt="Context 2" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="IMG_2100.jpg" alt="Context 6" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="DSC_0027.JPG" alt="Context 1" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="IMG_2098.jpg" alt="Context 4" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;aspect-ratio:4/3"><img src="IMG_2136.jpg" alt="Context 10" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+</div>
+
+<div style="padding:3rem 2.5rem 1.5rem;text-align:center">
+  <h2 style="font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);margin-bottom:1rem">Check out the design process below</h2>
+  <span style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);border-bottom:1px solid rgba(0,0,0,0.35);padding-bottom:4px">↓</span>
+</div>
+
+<div style="padding:0 2.5rem 4rem;display:flex;flex-direction:column;gap:1.5rem;align-items:center">
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres1.jpeg" alt="Presentation 1" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres2.jpeg" alt="Presentation 2" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres3.jpeg" alt="Presentation 3" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres4.jpeg" alt="Presentation 4" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres5.jpeg" alt="Presentation 5" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres6.jpeg" alt="Presentation 6" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres7.jpeg" alt="Presentation 7" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres8.jpeg" alt="Presentation 8" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres9.jpeg" alt="Presentation 9" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres10.jpeg" alt="Presentation 10" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres11.jpeg" alt="Presentation 11" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres12.jpeg" alt="Presentation 12" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres13.jpeg" alt="Presentation 13" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres14.jpeg" alt="Presentation 14" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres15.jpeg" alt="Presentation 15" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres16.jpeg" alt="Presentation 16" style="width:100%;display:block"></div>
+  <h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);width:80%;padding:1.5rem 0 0.5rem">Product Features</h2>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres17.jpeg" alt="Presentation 17" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="pres18.jpeg" alt="Presentation 18" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;width:80%"><img src="laptop-3.jpg" alt="Laptop Shade 3" style="width:100%;display:block"></div>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

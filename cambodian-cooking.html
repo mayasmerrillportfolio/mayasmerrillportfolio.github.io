@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambodian Culture through Cooking — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── HEADER ── */
+.project-cat{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.project-title{font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.project-title em{font-style:italic;color:var(--mid)}
+.project-desc{font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 2.5rem 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+.gallery-heading.no-italic{font-style:normal}
+.gallery-heading.medium{font-size:clamp(1.3rem,2.5vw,2rem)}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start;padding:8rem 2.5rem 2rem;max-width:100%">
+  <div>
+    <p class="project-cat">Product Design</p>
+    <h1 class="project-title">Cambodian Culture<br><em>through Cooking</em></h1>
+    <p class="project-desc">Phnom Penh, Cambodia</p>
+    <p style="font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:700;line-height:1.3;color:#555;font-style:italic;margin-bottom:1.2rem">How might we document and promote traditional Khmer Cuisine to a global market?</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">While teaching at AUPP Liger Leadership Academy in Phnom Penh, Cambodia, I designed and facilitated two 10-week project-based learning courses for Cambodian middle schoolers centered on documenting and promoting traditional Khmer cuisine. This was a significant and relevant project to execute, as neighboring countries like Thailand and Vietnam have successfully attained global recognition for their cuisine, meanwhile delicious Cambodian dishes remain less well known on the global scale.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">These courses were centered on guiding students to use digital design and visual communication tools (such as Adobe Illustrator, InDesign, Lightroom and Premiere Pro) to promote traditional Khmer cuisine and culture in creative and beautiful ways through illustration, video, product design and photography.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">Product packaging designed by students at AUPP Liger Leadership Academy / Art Direction by me</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:2rem">
+    <div class="gallery-item" style="overflow:hidden"><img src="Khmercooking-1.jpeg" alt="Cambodian Culture through Cooking" style="width:110%;display:block;margin-left:-10%;margin-bottom:-10%"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+      <div class="gallery-item" style="overflow:hidden;aspect-ratio:3/4"><img src="cooking2.jpg" alt="Khmer Cooking 2" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div class="gallery-item" style="overflow:hidden;aspect-ratio:3/4"><img src="cooking3.jpg" alt="Khmer Cooking 3" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    </div>
+  </div>
+</header>
+
+<h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 2.5rem 1.25rem">Cambodian Culture through Cooking — An Illustrated Cookbook (1st Edition)</h2>
+
+<div style="display:grid;grid-template-columns:3fr 2fr;gap:0;align-items:start;padding:1.5rem 2.5rem 3rem">
+  <iframe class="scribd_iframe_embed" src="https://www.scribd.com/embeds/903741724/content?start_page=1&view_mode=scroll&access_key=key-z3zOmyg7e45elI5ItNc1" scrolling="no" width="85%" height="780" frameborder="0" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-left:-2rem">In this first edition of the cookbook, my students and I focused on capturing the vibrant beauty of Khmer cuisine through photos and illustrations in a simple cookbook. I guided them to edit photos using Adobe Lightroom, interview restaurant owners to share about their journey with Khmer cuisine, create videos from interviews, write descriptions of foods and illustrate accompanying graphics with Adobe Illustrator.</p>
+</div>
+
+<h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 2.5rem 1.25rem">Chhey — Cambodian Culture through Cooking (2nd Edition)</h2>
+
+<div style="display:grid;grid-template-columns:3fr 2fr;gap:0;align-items:start;padding:1.5rem 2.5rem 3rem">
+  <iframe class="scribd_iframe_embed" src="https://www.scribd.com/embeds/903889273/content?start_page=1&view_mode=scroll&access_key=key-baudRTxhMROaEAn2Ab2r" scrolling="no" width="85%" height="780" frameborder="0" sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+  <div style="margin-left:-2rem">
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555;margin-bottom:1.2rem">This second version of the Cambodian Culture through Cooking cookbook, written and illustrated by students from AUPP Liger Leadership Academy and directed by me, builds off of the first edition. This version is aimed at making traditional Khmer recipes more accessible and easy to follow with step-by-step instructions and ingredient substitution suggestions depending on location, in order to more effectively spread Khmer cuisine around the world.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">In this class, I taught students Adobe Illustrator, InDesign and Premier so they could create a new cookbook, mealkit packaging and accompanying recipe tutorial videos. I also guided the development of the new branding guide and directed the design of the cookbook and packaging.</p>
+  </div>
+</div>
+
+<h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 2.5rem 1.25rem">Chhey — Cambodian Culture through Cooking Meal Kits &amp; Packaging Design</h2>
+
+<div style="padding:0 2.5rem 3rem;max-width:800px">
+  <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">As part of the class, I guided students to develop packaging designs for pre-packaged mealkits of traditional Khmer recipes like 'Nhom Plae Ai.' These mealkits were designed to be sold locally and abroad for foreigners who wished to take a piece of Cambodia's tasty cuisine home with them to try and cook themselves.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1.03fr 1fr;gap:1.5rem;padding:0 2.5rem 3rem;align-items:end">
+  <div class="gallery-item" style="overflow:hidden"><img src="package1.jpg" alt="Package 1" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="package2.jpg" alt="Package 2" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden;align-self:start"><img src="package3.png" alt="Package 3" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:visible;transform:translateY(-6%)">
+    <div style="overflow:hidden"><img src="package4.jpg" alt="Package 4" style="width:100%;display:block;margin-bottom:-13%"></div>
+  </div>
+</div>
+
+<p style="font-size:11px;font-weight:300;color:var(--mid);padding:0 2.5rem 3rem">Packaging designed by students in Adobe Illustrator, editing and art direction by me</p>
+
+<h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 2.5rem 1.25rem">Product Photos</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;padding:0 2.5rem 3rem">
+  <div class="gallery-item" style="overflow:hidden"><img src="product1.jpeg" alt="Product 1" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="product2.jpeg" alt="Product 2" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="product3.jpeg" alt="Product 3" style="width:100%;display:block"></div>
+  <div class="gallery-item" style="overflow:hidden"><img src="product4.jpeg" alt="Product 4" style="width:100%;display:block"></div>
+</div>
+
+<h2 style="font-family:var(--serif);font-style:normal;font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);letter-spacing:-0.01em;color:var(--black);padding:3rem 2.5rem 1.25rem">Class Presentation</h2>
+
+<div style="padding:0 2.5rem 3rem">
+  <iframe width="85%" height="480" src="https://www.youtube.com/embed/lefpB58qHig" frameborder="0" allowfullscreen></iframe>
+  <p style="font-size:11px;font-weight:300;color:var(--mid);margin-top:0.5rem">Presentation made by Liger Leadership Academy students</p>
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University of Oregon Branding — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:2rem;padding-right:2rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;cursor:pointer;background:var(--white)}
+.gallery-item img{
+  width:100%;display:block;
+  opacity:0;
+  transition:opacity 0.9s ease, transform 0.5s ease;
+}
+.gallery-item:hover img,.gallery-item img.revealed{opacity:1}
+.gallery-item:hover img{transform:scale(1.02)}
+
+/* ── GALLERY HEADING ── */
+.gallery-heading{
+  padding:3rem 0 1.25rem;
+  font-family:var(--serif);font-style:italic;font-weight:700;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  letter-spacing:-0.01em;color:var(--black);
+}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,0.92);
+  align-items:center;justify-content:center;cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;user-select:none}
+
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 2.5rem 2rem;max-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
+  <div>
+    <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Art Direction & Digital Design</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem">University of Oregon<br><em style="font-style:italic;color:var(--mid)">Branding</em></h1>
+    <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.5rem">Eugene, Oregon</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.85;color:#555">As a graphic designer for the UO Marketing and Communications Department for three years, I regularly collaborated with senior designers to produce digital and printed graphics that promoted university departments, programs and student services for incoming and current UO students. All designs made in Adobe Illustrator to promote the University of Oregon for the UO Marketing & Communications department.</p>
+  </div>
+  <div>
+    <img src="uobranding-110.gif" alt="UO Branding GIF" style="width:100%;display:block">
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">A gif showing the multiple iterations I made throughout the process of creating my November illustration for the UO calendar.</p>
+  </div>
+</header>
+
+<div style="padding:0 2.5rem 6rem">
+  <p class="gallery-heading" style="font-style:normal">Illustration</p>
+  <div style="display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:0.6rem;margin-top:1.25rem;align-items:stretch">
+    <div class="gallery-item" style="overflow:hidden"><img src="uobranding-9.jpeg" alt="UO Branding 9" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="uobranding-7.jpg" alt="UO Branding 7" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden"><img src="uobranding-8.jpg" alt="UO Branding 8" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+  <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I made this concept and illustration in Adobe Illustrator for the official University of Oregon calendar for November 2022. This calendar is distributed to new students and their families each year.</p>
+  <div style="width:70%;margin-top:2rem">
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-11.jpg" alt="UO Branding 11" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I created this concept and illustration for the 2023 incoming freshman postcard pack that is sent out to each incoming class as a means of promoting the University of Oregon and welcoming new students. It merges a photo of campus with an illustrated world (through the signature "O" hands) that shows the vibrant diversity of activities and students found at UO.</p>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-12.png" alt="UO Branding 12" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">The second design in this "O" series, I illustrated this design for the UO postcards distributed to incoming freshmen.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0.6rem;margin-top:3.5rem;align-items:stretch">
+    <div class="gallery-item" style="overflow:hidden;height:100%"><img src="uobranding-13.png" alt="UO Branding 13" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;height:100%"><img src="uobranding-14.jpeg" alt="UO Branding 14" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;height:100%"><img src="uobranding-15.png" alt="UO Branding 15" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="gallery-item" style="overflow:hidden;height:100%"><img src="uobranding-16.png" alt="UO Branding 16" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+  <p style="font-size:12px;color:var(--mid);margin-top:0.5rem;padding:0 0">I helped organize and promote 'THE STUDIO' annual art exhibit. This campus exhibit occurs every spring and features UO students' work. Above are the riso-print illustrations and infographics I created to promote this event through posters and social media.</p>
+  <div style="width:70%;margin-top:0">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem;align-items:stretch">
+      <div class="gallery-item" style="overflow:hidden"><img src="uobranding-17.jpg" alt="UO Branding 17" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div class="gallery-item" style="overflow:hidden"><img src="uobranding-18.jpeg" alt="UO Branding 18" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    </div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I created this poster promoting the student sustainability poster on the UO campus using whimsical designs to inform students of resources such as free water bottles for the UO Marketing and Communications department.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem;margin-top:3.5rem">
+      <div class="gallery-item"><img src="uobranding-20.png" alt="UO Branding 20" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="uobranding-21.jpg" alt="UO Branding 21" style="width:100%;display:block"></div>
+      <div class="gallery-item"><img src="uobranding-22.jpg" alt="UO Branding 22" style="width:100%;display:block"></div>
+    </div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I designed and illustrated this three-piece set of 'tarot' cards to represent the diversity of students and activities at the University of Oregon to promote the UO to incoming students.</p>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-23.jpg" alt="UO Branding 23" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I illustrated this graphic for the National Hispanic Heritage month for the Financial Wellness Center on campus, inspired by Hispanic art.</p>
+    <p class="gallery-heading" style="font-style:normal">Graphic Design</p>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-1.jpg" alt="UO Branding 1" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Illustration for a Certificate of Completion for the Men's Professional Development Series for the Holden Center for Leadership and Community Engagement. Creative direction by Leah Olsen.</p>
+    <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-2.jpg" alt="UO Branding 2" style="width:100%;display:block"></div>
+    <div class="gallery-item" style="margin-top:0.6rem"><img src="uobranding-3.jpg" alt="UO Branding 3" style="width:100%;display:block"></div>
+    <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I designed the 2022 banner, poster and digital display for the annual University Day event at the University of Oregon. Creative direction by Karly Barrett.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:3.5rem;align-items:start">
+      <div>
+        <div class="gallery-item"><img src="uobranding-5.jpg" alt="UO Branding 5" style="width:100%;display:block"></div>
+        <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">I helped illustrate and design graphics for the 2023 Career Readiness Week, to promote various workshops and info sessions that help prepare college students for career success. Creative direction by Leah Olsen.</p>
+      </div>
+      <div>
+        <div class="gallery-item"><img src="uobranding-6.jpg" alt="UO Branding 6" style="width:100%;display:block"></div>
+        <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Jamba Juice digital display advertisement for the EMU Student center at the University of Oregon. Creative direction by Leah Olsen.</p>
+        <div class="gallery-item" style="margin-top:3.5rem"><img src="uobranding-4.jpg" alt="UO Branding 4" style="width:100%;display:block"></div>
+        <p style="font-size:12px;color:var(--mid);margin-top:0.5rem">Digital display design to promote the UO Outdoor Program. Creative direction by Leah Olsen.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 600);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.1});
+_items.forEach(item => {
+  _observer.observe(item);
+  item.addEventListener('mouseenter', () => {
+    const img = item.querySelector('img');
+    if(img) img.classList.add('revealed');
+  }, {once:true});
+});
+
+const _lb = document.getElementById('lightbox');
+const _lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => { _lbImg.src = img.src; _lb.classList.add('open'); });
+});
+_lb.addEventListener('click', () => _lb.classList.remove('open'));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') _lb.classList.remove('open'); });
+</script>
+</body>
+</html>
