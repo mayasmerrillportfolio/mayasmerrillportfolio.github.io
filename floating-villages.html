@@ -155,10 +155,14 @@ nav{
     grid-template-columns:1fr;
     padding:0 0 2rem;
   }
+  /* Image blocks: image first, text below */
   .deliverable-block .deliverable-video{order:-1;width:100%}
   .deliverable-block .deliverable-video img,
   .deliverable-block .deliverable-video video{margin-top:0 !important}
   .deliverable-block .deliverable-desc{padding:1rem 0.75rem 0}
+  /* Video blocks: text first, video below */
+  .video-block .deliverable-desc{order:-1;padding:0 0.75rem 1rem}
+  .video-block .deliverable-video{order:0;width:100%}
 }
 
 /* ── HMW HEADING ── */
@@ -565,7 +569,7 @@ footer p{font-size:12px;color:var(--mid)}
 
 <h2 class="gallery-heading no-italic medium"><span style="font-weight:300">Deliverable 3 (Advocacy):</span><br>Promotional Videos for NGOs helping rural and floating village communities in Siem Reap: Volunteer Building Cambodia, Water for Cambodia and the Lake Clinic</h2>
 
-<div class="deliverable-block">
+<div class="deliverable-block video-block">
   <div class="deliverable-video">
     <iframe width="100%" height="300" src="https://www.youtube.com/embed/e-Fdkh8se3I" frameborder="0" allowfullscreen></iframe>
     <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
@@ -576,7 +580,7 @@ footer p{font-size:12px;color:var(--mid)}
   </div>
 </div>
 
-<div class="deliverable-block" style="margin-top:3rem">
+<div class="deliverable-block video-block" style="margin-top:3rem">
   <div class="deliverable-video">
     <iframe width="100%" height="300" src="https://www.youtube.com/embed/jrAZvmwgj3k" frameborder="0" allowfullscreen></iframe>
     <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
@@ -588,7 +592,7 @@ footer p{font-size:12px;color:var(--mid)}
   </div>
 </div>
 
-<div class="deliverable-block" style="margin-top:3rem">
+<div class="deliverable-block video-block" style="margin-top:3rem">
   <div class="deliverable-video">
     <iframe width="100%" height="300" src="https://www.youtube.com/embed/YP6RA8oiXEE" frameborder="0" allowfullscreen></iframe>
     <p class="sidebar-caption">Filmed and edited by Liger Leadership Academy students. Made in Adobe Premier.</p>
