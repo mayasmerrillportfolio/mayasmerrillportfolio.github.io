@@ -295,6 +295,16 @@ footer p{font-size:12px;color:var(--mid)}
   [style*="padding:0 2.5rem"]{padding-left:0.75rem !important;padding-right:0.75rem !important}
   [style*="padding:8rem 2.5rem"]{padding-left:0.75rem !important;padding-right:0.75rem !important}
   .gallery-item img{opacity:1 !important}
+
+  /* Deliverable circles: stack to 1 column and reset negative margins */
+  [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr !important}
+  [style*="margin-left:-2.5rem"]{margin-left:0 !important;margin-right:0 !important}
+  /* Show circle back content directly on mobile (no hover) */
+  .deliverable-circle .circle-front{opacity:0}
+  .deliverable-circle .circle-back{opacity:0;transition:opacity 0.5s ease}
+  .deliverable-circle.revealed .circle-back{opacity:1}
+  /* YouTube iframes: full width, 16:9 */
+  iframe[src*="youtube"]{width:100% !important;height:56vw !important}
 }
 </style>
 </head>
@@ -609,8 +619,15 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 document.querySelectorAll('.project-header-images img').forEach(img => {
   img.addEventListener('mouseenter', () => img.classList.add('revealed'), {once:true});
 });
+const circleObserver = new IntersectionObserver((entries) => {
+  entries.filter(e => e.isIntersecting).forEach((entry, i) => {
+    setTimeout(() => entry.target.classList.add('revealed'), i * 300);
+    circleObserver.unobserve(entry.target);
+  });
+}, {threshold: 0.3});
 document.querySelectorAll('.deliverable-circle').forEach(circle => {
   circle.addEventListener('mouseenter', () => circle.classList.add('revealed'), {once:true});
+  circleObserver.observe(circle);
 });
 
 const mapWrap = document.querySelector('.sidebar-map-wrap');
