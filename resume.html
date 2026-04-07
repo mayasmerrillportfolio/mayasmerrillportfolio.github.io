@@ -52,7 +52,7 @@ footer p{font-size:12px;color:var(--mid)}
   .resume{padding:6rem 1.25rem 4rem}
   .entry-header{flex-direction:column;gap:0.1rem}
   footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
-  img#about-photo{position:relative !important;float:right;right:auto;top:auto;width:45vw !important;margin:0 0 1rem 1.5rem;z-index:1}
+  #about-photo{position:static !important;float:none !important;width:100% !important;max-width:100% !important;margin:0 0 1.5rem 0 !important;display:block !important}
 }
 </style>
 </head>
@@ -65,7 +65,7 @@ footer p{font-size:12px;color:var(--mid)}
 
 <div class="resume">
 
-  <img id="about-photo" src="about-photo.jpg" alt="Maya Merrill" style="position:fixed;right:3rem;top:8rem;width:min(240px,20vw);object-fit:cover;display:block;z-index:10;transition:opacity 0.4s ease">
+  <img id="about-photo" src="about-photo.jpg" alt="Maya Merrill" style="position:fixed;right:3rem;top:8rem;width:min(240px,20vw);object-fit:cover;display:block;z-index:10">
 
   <div class="resume-header" style="border-bottom:none;padding-bottom:0">
     <h1>Maya Sayuri Merrill</h1>
