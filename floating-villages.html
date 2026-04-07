@@ -121,10 +121,10 @@ nav{
 .gallery-duck .natural{height:auto}
 .gallery-duck .natural img{height:auto;object-fit:initial}
 @media(max-width:750px){
-  .gallery-duck{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:180px;padding:0.5rem 1.25rem 2rem}
-  .gallery-duck .span2,.gallery-duck .span3{grid-column:span 1}
-  .gallery-duck .natural{height:100%}
-  .gallery-duck .natural img{height:100%;object-fit:cover}
+  .gallery-duck{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;padding:0 0 2rem}
+  .gallery-duck .span2,.gallery-duck .span3,.gallery-duck .span6{grid-column:span 1}
+  .gallery-duck .gallery-item{height:auto}
+  .gallery-duck .gallery-item img{height:auto;object-fit:initial;width:100%}
 }
 
 /* ── CHINAMPA GRID ── */
