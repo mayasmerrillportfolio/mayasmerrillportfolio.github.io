@@ -312,6 +312,12 @@ footer p{font-size:12px;color:var(--mid)}
   .deliverable-circle.revealed .circle-back{opacity:1}
   /* YouTube iframes: full width, 16:9 */
   iframe[src*="youtube"]{width:100% !important;height:56vw !important}
+  /* Rhino process gallery: 4 images → 1 column, full screen width */
+  .gallery[style*="grid-template-columns:repeat(4"]{
+    grid-template-columns:1fr !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
 }
 </style>
 </head>
