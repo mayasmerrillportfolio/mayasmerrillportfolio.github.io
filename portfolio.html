@@ -138,6 +138,10 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
 .footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .footer-links a:hover{color:#fff}
 
+/* ── WORK TABS ── */
+.work-section{display:none}
+.work-section.active-tab{display:block}
+
 /* ── RESPONSIVE ── */
 @media(max-width:750px){
   .projects-grid{grid-template-columns:1fr;gap:0.4rem}
@@ -155,8 +159,8 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
 <!-- ── NAV ── -->
 <nav id="mainNav">
   <div class="nav-links">
-    <a href="#product">Product</a>
-    <a href="#physical" class="active">Spatial</a>
+    <a href="#product" class="active">Product</a>
+    <a href="#physical">Spatial</a>
     <a href="#digital">Art Direction &amp; Digital</a>
     <a href="#art">Analog</a>
     <a href="#photo">Storytelling</a>
@@ -184,13 +188,13 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
       <span class="name-line"><span><em>Merrill,</em></span></span>
     </h1>
     <p class="hero-role"><span>Multidisciplinary Designer &amp; Educator</span></p>
-    <a href="#physical" class="hero-cta">Take a peek at my work &nbsp;↓</a>
+    <a href="#product" class="hero-cta">Take a peek at my work &nbsp;↓</a>
   </div>
   <span class="hero-scroll">Scroll</span>
 </section>
 
 <!-- ════════════════════ PRODUCT DESIGN ════════════════════ -->
-<section class="work-section" id="product">
+<section class="work-section active-tab" id="product">
   <div class="section-header">
     <h2>Product</h2>
     <span>Selected projects</span>
@@ -220,10 +224,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
         <p class="project-card-sub">Eugene, Oregon</p>
       </div>
     </a>
-
-  </div>
-
-  <div class="projects-grid" id="product-extra" style="margin-top:0.6rem;display:none">
 
     <a class="project-card" href="biomaterials-design.html">
       <img src="materials/1.jpg" alt="Biomaterials Design" style="width:100%;height:100%;object-fit:cover;display:block">
@@ -297,13 +297,6 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
       </div>
     </a>
 
-  </div>
-
-  <div style="text-align:center;margin-top:1.5rem">
-    <button id="product-toggle" onclick="toggleProduct()" style="background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);display:inline-flex;align-items:center;gap:0.5rem;transition:color 0.2s" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--mid)'">
-      <span id="product-toggle-label">Show more</span>
-      <span id="product-toggle-arrow" style="font-size:14px;transition:transform 0.3s">↓</span>
-    </button>
   </div>
 </section>
 
@@ -561,26 +554,32 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
 </footer>
 
 <script>
-// ── PRODUCT DESIGN TOGGLE ──
-function toggleProduct(){
-  const extra = document.getElementById('product-extra');
-  const label = document.getElementById('product-toggle-label');
-  const arrow = document.getElementById('product-toggle-arrow');
-  const open = extra.style.display === 'none';
-  extra.style.display = open ? 'grid' : 'none';
-  label.textContent = open ? 'Show less' : 'Show more';
-  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+// ── WORK TAB SWITCHING ──
+const workTabIds = ['product','physical','digital','art','photo'];
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function showWorkTab(id){
+  workTabIds.forEach(s => {
+    const el = document.getElementById(s);
+    if(el) el.classList.toggle('active-tab', s === id);
+  });
+  navLinks.forEach(a => {
+    const href = a.getAttribute('href');
+    if(href && workTabIds.includes(href.slice(1)))
+      a.classList.toggle('active', href === '#' + id);
+  });
 }
 
-function toggleDigital(){
-  const extra = document.getElementById('digital-extra');
-  const label = document.getElementById('digital-toggle-label');
-  const arrow = document.getElementById('digital-toggle-arrow');
-  const open = extra.style.display === 'none';
-  extra.style.display = open ? 'grid' : 'none';
-  label.textContent = open ? 'Show less' : 'Show more';
-  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-}
+navLinks.forEach(a => {
+  const href = a.getAttribute('href');
+  if(href && href.startsWith('#') && workTabIds.includes(href.slice(1))){
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      showWorkTab(href.slice(1));
+      window.scrollTo({top: document.getElementById('hero').offsetHeight, behavior:'smooth'});
+    });
+  }
+});
 
 // ── NAME REVEAL ──
 const heroContent = document.getElementById('heroContent');
@@ -608,18 +607,6 @@ new IntersectionObserver(entries => {
     heroVisible = e.isIntersecting;
   });
 },{threshold:0.5}).observe(heroEl);
-
-// ── ACTIVE NAV ON SCROLL ──
-const sections = ['physical','digital','art','photo','about','contact'];
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = 'physical';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - 140) current = id;
-  });
-  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+current));
-},{passive:true});
 
 // ── CONTACT FORM ──
 let uName = '';
