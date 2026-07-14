@@ -548,7 +548,7 @@ footer p{font-size:12px;color:rgba(255,255,255,0.3)}
 const workTabIds = ['product','physical','digital','art','photo'];
 const navLinks = document.querySelectorAll('.nav-links a');
 
-function showWorkTab(id){
+function showWorkTab(id, updateUrl = true){
   workTabIds.forEach(s => {
     const el = document.getElementById(s);
     if(el) el.classList.toggle('active-tab', s === id);
@@ -558,6 +558,7 @@ function showWorkTab(id){
     if(href && workTabIds.includes(href.slice(1)))
       a.classList.toggle('active', href === '#' + id);
   });
+  if(updateUrl) history.pushState(null, '', '#' + id);
 }
 
 navLinks.forEach(a => {
@@ -569,6 +570,20 @@ navLinks.forEach(a => {
       window.scrollTo({top: document.getElementById('hero').offsetHeight, behavior:'smooth'});
     });
   }
+});
+
+// ── RESTORE TAB FROM URL HASH ──
+const initHash = location.hash.slice(1);
+if(workTabIds.includes(initHash)){
+  showWorkTab(initHash, false);
+} else {
+  showWorkTab('product', false);
+}
+
+// ── BROWSER BACK / FORWARD ──
+window.addEventListener('popstate', () => {
+  const hash = location.hash.slice(1);
+  showWorkTab(workTabIds.includes(hash) ? hash : 'product', false);
 });
 
 // ── NAME REVEAL ──
