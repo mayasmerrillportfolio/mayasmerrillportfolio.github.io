@@ -623,7 +623,31 @@ function next(n){
   setTimeout(()=>{ const el=document.querySelector('#s'+(n+1)+' input,#s'+(n+1)+' textarea'); if(el)el.focus(); },60);
 }
 function prev(n){ document.getElementById('s'+n).classList.remove('active'); document.getElementById('s'+(n-1)).classList.add('active'); }
-function sendForm(){ if(!document.getElementById('iMsg').value.trim()){document.getElementById('iMsg').focus();return;} document.getElementById('formSteps').style.display='none'; document.getElementById('formOk').style.display='block'; }
+async function sendForm(){
+  const msg = document.getElementById('iMsg').value.trim();
+  if(!msg){document.getElementById('iMsg').focus();return;}
+  const name  = document.getElementById('iName').value.trim();
+  const email = document.getElementById('iEmail').value.trim();
+  const btn = document.querySelector('.btn-send');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/mdaqoqrd', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({name, email, message: msg})
+    });
+    if(res.ok){
+      document.getElementById('formSteps').style.display='none';
+      document.getElementById('formOk').style.display='block';
+    } else {
+      btn.textContent = 'Send it →'; btn.disabled = false;
+      alert('Something went wrong — please try again or email me directly.');
+    }
+  } catch(e){
+    btn.textContent = 'Send it →'; btn.disabled = false;
+    alert('Something went wrong — please try again or email me directly.');
+  }
+}
 document.addEventListener('keydown', e=>{
   if(e.key!=='Enter'||e.target.tagName==='TEXTAREA')return;
   if(document.getElementById('s1').classList.contains('active'))next(1);
