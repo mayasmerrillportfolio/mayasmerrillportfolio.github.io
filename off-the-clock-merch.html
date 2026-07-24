@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off the Clock Merch — Maya Merrill</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--white:#fff;--gray:#f4f3f0;--mid:#888;--line:rgba(0,0,0,0.1);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+}
+body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;padding-left:4rem;padding-right:4rem}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 2.5rem;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.nav-back{font-size:12px;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem}
+.nav-back:hover{color:var(--black)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--black);text-decoration:none}
+
+/* ── GALLERY ── */
+.gallery-item{overflow:hidden;background:var(--white)}
+.gallery-item img{width:100%;display:block;opacity:0;transition:opacity 0.9s ease}
+.gallery-item img.revealed{opacity:1}
+.gallery-grid{display:grid;gap:0.6rem}
+.gallery-grid.cols-2{grid-template-columns:1fr 1fr}
+.section-label{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.1rem,2vw,1.5rem);letter-spacing:-0.01em;padding:3rem 0 1rem}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;margin-top:4rem}
+footer p{font-size:12px;color:var(--mid)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:750px){
+  nav{padding:1rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 1.25rem}
+  body{padding-left:1.5rem !important;padding-right:1.5rem !important}
+  header{padding:5rem 0 1.5rem !important}
+  .gallery-grid.cols-2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="portfolio.html#product">← Back</a>
+  <a class="nav-name" href="portfolio.html">Maya Merrill</a>
+</nav>
+
+<header style="padding:8rem 0 2rem;max-width:100%">
+  <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem">Product Design</p>
+  <h1 style="font-family:var(--serif);font-size:clamp(2rem,5vw,4rem);font-weight:400;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.5rem">Off the Clock<br><em style="font-style:italic;color:var(--mid)">Merch</em></h1>
+  <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:2rem">Portland, Oregon</p>
+  <div class="gallery-item">
+    <img src="OTC%20Merch/DSC01508.JPG" alt="Off the Clock stickers">
+  </div>
+</header>
+
+<div style="padding-bottom:6rem">
+
+  <p class="section-label">Sticker Design</p>
+  <div class="gallery-grid cols-2">
+    <div class="gallery-item"><img src="OTC%20Merch/Sticker%20versions/OTC-runningstickers.png" alt="OTC sticker design"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Sticker%20versions/OTC-runningstickers-16.png" alt="OTC sticker design variant"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Sticker%20versions/OTC-runningsticker-brown-v2.png" alt="OTC sticker brown variant"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Sticker%20versions/OTC-runningstickers-brown-v2.png" alt="OTC sticker brown v2"></div>
+  </div>
+
+  <p class="section-label">Sticker Production</p>
+  <div class="gallery-grid cols-2">
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01509.JPG" alt="OTC stickers"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01508%20copy.JPG" alt="OTC stickers close up"></div>
+  </div>
+
+  <p class="section-label">Shirt Design</p>
+  <div class="gallery-grid cols-2">
+    <div class="gallery-item"><img src="OTC%20Merch/Shirt%20versions'/OTC-runningshirt-design-02.png" alt="OTC shirt design 02"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Shirt%20versions'/OTC-runningshirt-design-04.png" alt="OTC shirt design 04"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Shirt%20versions'/OTC-runningshirt-design-06.png" alt="OTC shirt design 06"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/Shirt%20versions'/OTC-runningshirt-design-07.png" alt="OTC shirt design 07"></div>
+  </div>
+
+  <p class="section-label">Shirts in Production</p>
+  <div class="gallery-grid cols-2">
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01529.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01530.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01531.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01532.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01533.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01534.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01535.JPG" alt="OTC shirts"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01536.JPG" alt="OTC shirts"></div>
+  </div>
+
+  <p class="section-label">Event</p>
+  <div class="gallery-grid cols-2">
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0001.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0002.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0007.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0008.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0009.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC_0010.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01537.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01538.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01539.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01540.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01541.JPG" alt="OTC event"></div>
+    <div class="gallery-item"><img src="OTC%20Merch/DSC01542.JPG" alt="OTC event"></div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Maya Merrill</p>
+  <p><a href="portfolio.html#product" style="color:var(--mid);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">Back to portfolio →</a></p>
+</footer>
+
+<script>
+const _items = document.querySelectorAll('.gallery-item');
+const _observer = new IntersectionObserver((entries) => {
+  const visible = entries.filter(e => e.isIntersecting);
+  visible.forEach((entry, i) => {
+    const img = entry.target.querySelector('img');
+    if(img && !img.classList.contains('revealed')){
+      setTimeout(() => img.classList.add('revealed'), i * 150);
+    }
+    _observer.unobserve(entry.target);
+  });
+}, {threshold:0.05});
+_items.forEach(item => _observer.observe(item));
+</script>
+</body>
+</html>
